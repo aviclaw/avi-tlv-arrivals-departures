@@ -141,8 +141,8 @@
       };
       const fmtTime = (s) => s ? s.replace('.000', '') : 'n/a';
 
-      function metric(title, completed, planned) {
-        return `<div class="metric"><div class="label">${title}</div><div class="value ok">Completed: ${completed ?? 0}</div><div class="value planned">Planned: ${planned ?? 0}</div></div>`;
+      function metric(title, completed, inProgress, planned) {
+        return `<div class="metric"><div class="label">${title}</div><div class="value ok">Completed: ${completed ?? 0}</div><div class="value">In progress: ${inProgress ?? 0}</div><div class="value planned">Planned: ${planned ?? 0}</div></div>`;
       }
 
       function rows(items = [], type = 'arrival') {
@@ -159,13 +159,20 @@
       }
 
       function detailsPanel(dayData) {
-        const arrList = dayData?.arrival?.summary?.completed_examples || [];
-        const depList = dayData?.departure?.summary?.completed_examples || [];
+        const arrDone = dayData?.arrival?.summary?.completed_examples || [];
+        const depDone = dayData?.departure?.summary?.completed_examples || [];
+        const depActive = dayData?.departure?.summary?.in_progress_examples || [];
+        const depPlanned = dayData?.departure?.summary?.planned_examples || [];
+
         return `<div class="panel">
-          <h4>Arrivals details</h4>
-          ${rows(arrList, 'arrival')}
-          <h4 style="margin-top:12px;">Departures details</h4>
-          ${rows(depList, 'departure')}
+          <h4>Arrivals, completed examples</h4>
+          ${rows(arrDone, 'arrival')}
+          <h4 style="margin-top:12px;">Departures, completed examples</h4>
+          ${rows(depDone, 'departure')}
+          <h4 style="margin-top:12px;">Departures, in progress examples</h4>
+          ${rows(depActive, 'departure')}
+          <h4 style="margin-top:12px;">Departures, planned examples</h4>
+          ${rows(depPlanned, 'departure')}
         </div>`;
       }
 
@@ -211,8 +218,8 @@
               <div class="small">arr: ${arr.endpoint_mode || '-'} • dep: ${dep.endpoint_mode || '-'}</div>
             </div>
             <div class="grid2">
-              ${metric('Arrivals', arrS.counts?.completed, arrS.counts?.planned)}
-              ${metric('Departures', depS.counts?.completed, depS.counts?.planned)}
+              ${metric('Arrivals', arrS.counts?.completed, arrS.counts?.in_progress, arrS.counts?.planned)}
+              ${metric('Departures', depS.counts?.completed, depS.counts?.in_progress, depS.counts?.planned)}
             </div>
             <button class="open-btn" data-open-day="${day}">${isOpen ? 'Hide details' : 'Show flight details'}</button>
             ${isOpen ? detailsPanel(dayData) : ''}

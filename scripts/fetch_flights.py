@@ -105,7 +105,7 @@ def is_arrival_completed(item):
 
 def is_departure_completed(item):
     status = get_status(item)
-    if status in {"active", "departed"}:
+    if status in {"departed"}:
         return True
     if get_nested(item, "departure", "actualTime"):
         return True
@@ -114,10 +114,22 @@ def is_departure_completed(item):
     return False
 
 
+def is_in_progress(item):
+    return get_status(item) == "active"
+
+
 def classify_flight(item, flight_type):
     if flight_type == "arrival":
-        return "completed" if is_arrival_completed(item) else "planned"
-    return "completed" if is_departure_completed(item) else "planned"
+        if is_arrival_completed(item):
+            return "completed"
+        return "planned"
+
+    # departures
+    if is_departure_completed(item):
+        return "completed"
+    if is_in_progress(item):
+        return "in_progress"
+    return "planned"
 
 
 def extract_flight(item):
@@ -145,6 +157,7 @@ def summarize(data, flight_type):
     status_counts = Counter()
 
     completed_examples = []
+    in_progress_examples = []
     planned_examples = []
 
     for item in data:
@@ -156,6 +169,8 @@ def summarize(data, flight_type):
         flight = extract_flight(item)
         if bucket == "completed" and len(completed_examples) < 10:
             completed_examples.append(flight)
+        elif bucket == "in_progress" and len(in_progress_examples) < 10:
+            in_progress_examples.append(flight)
         elif bucket == "planned" and len(planned_examples) < 10:
             planned_examples.append(flight)
 
@@ -163,10 +178,12 @@ def summarize(data, flight_type):
         "total": len(data),
         "counts": {
             "completed": category_counts.get("completed", 0),
+            "in_progress": category_counts.get("in_progress", 0),
             "planned": category_counts.get("planned", 0),
         },
         "status_counts": dict(status_counts.most_common()),
         "completed_examples": completed_examples,
+        "in_progress_examples": in_progress_examples,
         "planned_examples": planned_examples,
     }
 

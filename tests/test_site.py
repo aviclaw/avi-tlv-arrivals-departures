@@ -21,6 +21,7 @@ def test_1_details_renderer_not_broken_placeholder() -> None:
     # Ensure renderer uses computed body rows
     assert "const body = items.map" in html
     assert "<tbody>${body}</tbody>" in html
+    assert "In progress:" in html
 
     payload = json.loads(DATA.read_text(encoding="utf-8"))
     day = payload["days"]["2026-03-10"]
