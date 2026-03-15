@@ -40,16 +40,22 @@
       }
       .btn:disabled { opacity: .65; cursor: not-allowed; }
       .cards {
-        margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;
+        margin-top: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
       }
       .day-card {
         background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px;
         box-shadow: 0 6px 16px rgba(0, 59, 143, 0.08);
       }
-      .day-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+      .day-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
       .day { font-size: 1.03rem; font-weight: 800; }
       .small { font-size: .8rem; color: var(--muted); }
       .grid2 { margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      @media (max-width: 700px) {
+        .grid2 { grid-template-columns: 1fr; }
+      }
       .metric { background: var(--surface-2); border: 1px solid #d7e4fb; border-radius: 10px; padding: 10px; }
       .label { color: var(--muted); font-size: .8rem; margin-bottom: 4px; }
       .value { font-weight: 700; font-size: 1rem; }
