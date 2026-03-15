@@ -128,6 +128,16 @@ def test_7_footer_documents_data_source_and_flightradar_usage() -> None:
     assert "https://www.flightradar24.com/" in html
 
 
+def test_8_favicon_is_declared_and_present() -> None:
+    html = INDEX.read_text(encoding="utf-8")
+    assert 'rel="icon"' in html
+    assert "favicon.svg" in html
+    favicon = ROOT / "favicon.svg"
+    assert favicon.exists()
+    svg = favicon.read_text(encoding="utf-8")
+    assert 'width="16"' in svg and 'height="16"' in svg
+
+
 def test_no_credential_like_strings_in_tracked_text_files() -> None:
     suspicious_patterns = [
         re.compile(r"(?i)(api[_-]?key|token|secret|password)\s*[:=]\s*['\"]?[A-Za-z0-9_\-]{16,}"),
