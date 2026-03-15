@@ -21,7 +21,7 @@ def test_1_details_renderer_not_broken_placeholder() -> None:
     # Ensure renderer uses computed body rows
     assert "const body = items.map" in html
     assert "<tbody>${body}</tbody>" in html
-    assert "In progress:" in html
+    assert "inProgress" in html
 
     payload = json.loads(DATA.read_text(encoding="utf-8"))
     day = payload["days"]["2026-03-10"]
@@ -84,7 +84,16 @@ def test_2_refresh_endpoint_cors_and_post() -> None:
     assert '"ok":true' in pout.lower() or '"error":' in pout.lower()
 
 
-def test_3_search_filter_present_and_enter_triggered() -> None:
+def test_3_language_toggle_present_and_labels_available() -> None:
+    html = INDEX.read_text(encoding="utf-8")
+    assert 'id="langToggleBtn"' in html
+    assert "const I18N" in html
+    assert "English (USA)" in html
+    assert "עברית" in html
+    assert "applyLang()" in html
+
+
+def test_4_search_filter_present_and_enter_triggered() -> None:
     html = INDEX.read_text(encoding="utf-8")
     assert 'id="flightSearch"' in html
     assert 'id="searchBtn"' in html
@@ -92,7 +101,7 @@ def test_3_search_filter_present_and_enter_triggered() -> None:
     assert "if (e.key === 'Enter')" in html
 
 
-def test_4_search_sanitization_guards_injection_and_boundary() -> None:
+def test_5_search_sanitization_guards_injection_and_boundary() -> None:
     html = INDEX.read_text(encoding="utf-8")
 
     # Sanitization + boundary guard exists
@@ -106,20 +115,20 @@ def test_4_search_sanitization_guards_injection_and_boundary() -> None:
       assert token not in html
 
 
-def test_5_search_handles_not_found_flow() -> None:
+def test_6_search_handles_not_found_flow() -> None:
     html = INDEX.read_text(encoding="utf-8")
     assert "NOT FOUND" in html
     assert "No flight or airline matched" in html
 
 
-def test_6_status_label_maps_active_to_in_progress_for_display() -> None:
+def test_7_status_label_maps_active_to_in_progress_for_display() -> None:
     html = INDEX.read_text(encoding="utf-8")
     assert "const humanStatus" in html
     assert "if (v === 'active') return 'in progress';" in html
     assert "${humanStatus(it.status)}" in html
 
 
-def test_7_footer_documents_data_source_and_flightradar_usage() -> None:
+def test_8_footer_documents_data_source_and_flightradar_usage() -> None:
     html = INDEX.read_text(encoding="utf-8")
     assert "Aviation Edge API" in html
     assert "https://aviation-edge.com/" in html
@@ -128,7 +137,7 @@ def test_7_footer_documents_data_source_and_flightradar_usage() -> None:
     assert "https://www.flightradar24.com/" in html
 
 
-def test_8_favicon_is_declared_and_present() -> None:
+def test_9_favicon_is_declared_and_present() -> None:
     html = INDEX.read_text(encoding="utf-8")
     assert 'rel="icon"' in html
     assert "favicon.svg" in html
@@ -138,7 +147,7 @@ def test_8_favicon_is_declared_and_present() -> None:
     assert 'width="16"' in svg and 'height="16"' in svg
 
 
-def test_9_refresh_job_tracks_new_tlv_day_automatically() -> None:
+def test_10_refresh_job_tracks_new_tlv_day_automatically() -> None:
     workflow = (ROOT / ".github" / "workflows" / "refresh-data.yml").read_text(encoding="utf-8")
     script = (ROOT / "scripts" / "fetch_flights.py").read_text(encoding="utf-8")
 

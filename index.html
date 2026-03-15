@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -127,6 +127,17 @@
         line-height: 1.45;
       }
       .footer-note a { color: var(--brand); font-weight: 700; }
+      .lang-toggle {
+        margin-left: 8px;
+      }
+      html[lang="he"] body {
+        direction: rtl;
+      }
+      html[lang="he"] .top,
+      html[lang="he"] .controls,
+      html[lang="he"] .day-head {
+        direction: rtl;
+      }
     </style>
   </head>
   <body>
@@ -136,7 +147,10 @@
           <h1>TLV Arrivals & Departures</h1>
           <div id="meta" class="meta">Loading...</div>
         </div>
-        <button id="refreshBtn" class="btn">Refresh now</button>
+        <div>
+          <button id="langToggleBtn" class="btn lang-toggle" aria-label="Switch language">עברית</button>
+          <button id="refreshBtn" class="btn">Refresh now</button>
+        </div>
       </div>
       <div class="controls">
         <label for="dayFilter" class="small" style="font-weight:700;">Filter day</label>
@@ -174,6 +188,7 @@
       const cardsEl = document.getElementById('cards');
       const metaEl = document.getElementById('meta');
       const refreshBtn = document.getElementById('refreshBtn');
+      const langToggleBtn = document.getElementById('langToggleBtn');
       const dayFilterEl = document.getElementById('dayFilter');
       const sortOrderEl = document.getElementById('sortOrder');
       const flightSearchEl = document.getElementById('flightSearch');
@@ -181,6 +196,161 @@
       const searchResultsEl = document.getElementById('searchResults');
       let payloadCache = null;
       const openDays = new Set();
+      const I18N = {
+        en: {
+          htmlLang: 'en',
+          dir: 'ltr',
+          toggle: 'עברית',
+          title: 'TLV Arrivals & Departures',
+          loading: 'Loading...',
+          refreshNow: 'Refresh now',
+          refreshing: 'Refreshing...',
+          refreshed: 'Refreshed!',
+          filterDay: 'Filter day',
+          allDays: 'All days',
+          sort: 'Sort',
+          newestFirst: 'Newest first',
+          oldestFirst: 'Oldest first',
+          filterFlightAirline: 'Filter Flight / Airline',
+          searchPlaceholder: 'e.g. LY827, El Al',
+          search: 'Search',
+          dataSource: 'Data source:',
+          dataSourceDesc: 'Aviation Edge fetches and aggregates flight schedule/status data from airport systems and airline/ATC feeds.',
+          trackingDesc: 'Flight tracking links use Flightradar24 for flight pages and live tracking context.',
+          completed: 'Completed',
+          inProgress: 'In progress',
+          planned: 'Planned',
+          arrivals: 'Arrivals',
+          departures: 'Departures',
+          hideDetails: 'Hide details',
+          showDetails: 'Show flight details',
+          arrivalsCompletedExamples: 'Arrivals, completed examples',
+          departuresCompletedExamples: 'Departures, completed examples',
+          departuresInProgressExamples: 'Departures, in progress examples',
+          departuresPlannedExamples: 'Departures, planned examples',
+          noExamples: 'No examples for this bucket.',
+          flight: 'Flight',
+          airline: 'Airline',
+          route: 'Route',
+          status: 'Status',
+          schedArr: 'Sched Arr',
+          schedDep: 'Sched Dep',
+          actualArr: 'Actual Arr',
+          actualDep: 'Actual Dep',
+          track: 'Track',
+          unknown: 'unknown',
+          inProgressStatus: 'in progress',
+          notFound: 'NOT FOUND',
+          noMatch: 'No flight or airline matched',
+          foundN: (n) => `Found ${n}`,
+          resultsFor: (q) => `result(s) for "${q}"`,
+          matches: (n) => `${n} match(es)`,
+          type: 'Type',
+          scheduled: 'Scheduled',
+          failedLoad: 'Failed to load data',
+          noDataForFilter: 'No data for selected filter.',
+          airportUpdated: (airport, generated, dayCount) => `Airport ${airport} • Updated ${generated} • ${dayCount} days`,
+          endpointModes: (arr, dep) => `arr: ${arr} • dep: ${dep}`,
+          arrivalError: (e) => `Arrival error: ${e}`,
+          departureError: (e) => `Departure error: ${e}`
+        },
+        he: {
+          htmlLang: 'he',
+          dir: 'rtl',
+          toggle: 'English (USA)',
+          title: 'נחיתות והמראות ב-TLV',
+          loading: 'טוען...',
+          refreshNow: 'רענון עכשיו',
+          refreshing: 'מרענן...',
+          refreshed: 'רוענן!',
+          filterDay: 'סינון יום',
+          allDays: 'כל הימים',
+          sort: 'מיון',
+          newestFirst: 'החדש ביותר קודם',
+          oldestFirst: 'הישן ביותר קודם',
+          filterFlightAirline: 'סינון טיסה / חברת תעופה',
+          searchPlaceholder: 'לדוגמה: LY827, El Al',
+          search: 'חיפוש',
+          dataSource: 'מקור הנתונים:',
+          dataSourceDesc: 'Aviation Edge אוסף ומאגד נתוני לוחות זמנים וסטטוס טיסות ממערכות שדות תעופה ומקורות חברות תעופה/פיקוח אווירי.',
+          trackingDesc: 'קישורי המעקב משתמשים ב-Flightradar24 לעמודי טיסה והקשר מעקב חי.',
+          completed: 'הושלמו',
+          inProgress: 'בתהליך',
+          planned: 'מתוכננות',
+          arrivals: 'נחיתות',
+          departures: 'המראות',
+          hideDetails: 'הסתר פרטים',
+          showDetails: 'הצג פרטי טיסה',
+          arrivalsCompletedExamples: 'נחיתות, דוגמאות שהושלמו',
+          departuresCompletedExamples: 'המראות, דוגמאות שהושלמו',
+          departuresInProgressExamples: 'המראות, דוגמאות בתהליך',
+          departuresPlannedExamples: 'המראות, דוגמאות מתוכננות',
+          noExamples: 'אין דוגמאות בקטגוריה זו.',
+          flight: 'טיסה',
+          airline: 'חברת תעופה',
+          route: 'מסלול',
+          status: 'סטטוס',
+          schedArr: 'נחיתה מתוכננת',
+          schedDep: 'המראה מתוכננת',
+          actualArr: 'נחיתה בפועל',
+          actualDep: 'המראה בפועל',
+          track: 'מעקב',
+          unknown: 'לא ידוע',
+          inProgressStatus: 'בתהליך',
+          notFound: 'לא נמצא',
+          noMatch: 'לא נמצאה טיסה או חברת תעופה שתואמת ל',
+          foundN: (n) => `נמצאו ${n}`,
+          resultsFor: (q) => `תוצאה/ות עבור "${q}"`,
+          matches: (n) => `${n} התאמה/ות`,
+          type: 'סוג',
+          scheduled: 'מתוכנן',
+          failedLoad: 'טעינת הנתונים נכשלה',
+          noDataForFilter: 'אין נתונים עבור הסינון שנבחר.',
+          airportUpdated: (airport, generated, dayCount) => `שדה תעופה ${airport} • עודכן ${generated} • ${dayCount} ימים`,
+          endpointModes: (arr, dep) => `נחיתות: ${arr} • המראות: ${dep}`,
+          arrivalError: (e) => `שגיאת נחיתות: ${e}`,
+          departureError: (e) => `שגיאת המראות: ${e}`
+        }
+      };
+      let currentLang = localStorage.getItem('tlv_lang') === 'he' ? 'he' : 'en';
+      const t = (key, ...args) => {
+        const v = I18N[currentLang][key];
+        return typeof v === 'function' ? v(...args) : v;
+      };
+
+      function applyLang() {
+        const htmlEl = document.documentElement;
+        htmlEl.lang = I18N[currentLang].htmlLang;
+        htmlEl.dir = I18N[currentLang].dir;
+
+        document.querySelector('h1').textContent = t('title');
+        if (!payloadCache) metaEl.textContent = t('loading');
+
+        refreshBtn.textContent = refreshBtn.disabled ? t('refreshing') : t('refreshNow');
+        langToggleBtn.textContent = t('toggle');
+
+        const labels = document.querySelectorAll('label');
+        if (labels[0]) labels[0].textContent = t('filterDay');
+        if (labels[1]) labels[1].textContent = t('sort');
+        if (labels[2]) labels[2].textContent = t('filterFlightAirline');
+
+        const dayAll = dayFilterEl.querySelector('option[value="all"]');
+        if (dayAll) dayAll.textContent = t('allDays');
+
+        if (sortOrderEl.options[0]) sortOrderEl.options[0].textContent = t('newestFirst');
+        if (sortOrderEl.options[1]) sortOrderEl.options[1].textContent = t('oldestFirst');
+
+        flightSearchEl.placeholder = t('searchPlaceholder');
+        searchBtnEl.textContent = t('search');
+
+        const footer = document.querySelector('.footer-note');
+        if (footer) {
+          const rows = footer.querySelectorAll('div');
+          if (rows[0]) rows[0].childNodes[0].textContent = `${t('dataSource')} `;
+          if (rows[0]) rows[0].childNodes[2].textContent = ` ${t('dataSourceDesc')}`;
+          if (rows[1]) rows[1].childNodes[0].textContent = t('trackingDesc');
+        }
+      }
 
       const fmtDay = (iso) => {
         const d = new Date(iso + 'T00:00:00Z');
@@ -189,12 +359,13 @@
       const fmtTime = (s) => s ? s.replace('.000', '') : 'n/a';
       const humanStatus = (s) => {
         const v = String(s || 'unknown').toLowerCase();
-        if (v === 'active') return 'in progress';
+        if (v === 'active') return t('inProgressStatus');
+        if (v === 'unknown') return t('unknown');
         return v;
       };
 
       function metric(title, completed, inProgress, planned) {
-        return `<div class="metric"><div class="label">${title}</div><div class="value ok">Completed: ${completed ?? 0}</div><div class="value">In progress: ${inProgress ?? 0}</div><div class="value planned">Planned: ${planned ?? 0}</div></div>`;
+        return `<div class="metric"><div class="label">${title}</div><div class="value ok">${t('completed')}: ${completed ?? 0}</div><div class="value">${t('inProgress')}: ${inProgress ?? 0}</div><div class="value planned">${t('planned')}: ${planned ?? 0}</div></div>`;
       }
 
       function flightRadarUrl(flight) {
@@ -204,7 +375,7 @@
       }
 
       function rows(items = [], type = 'arrival') {
-        if (!items.length) return '<div class="small">No examples for this bucket.</div>';
+        if (!items.length) return `<div class="small">${t('noExamples')}</div>`;
         const body = items.map(it => `<tr>
             <td>${it.flight || 'n/a'}</td>
             <td>${it.airline || 'n/a'}</td>
@@ -223,7 +394,7 @@
               >✈️</a>
             </td>
           </tr>`).join('');
-        return `<div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Route</th><th>Status</th><th>Sched ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Actual ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Track</th></tr></thead><tbody>${body}</tbody></table></div>`;
+        return `<div class="narrow"><table><thead><tr><th>${t('flight')}</th><th>${t('airline')}</th><th>${t('route')}</th><th>${t('status')}</th><th>${type === 'arrival' ? t('schedArr') : t('schedDep')}</th><th>${type === 'arrival' ? t('actualArr') : t('actualDep')}</th><th>${t('track')}</th></tr></thead><tbody>${body}</tbody></table></div>`;
       }
 
       function normalizeCounts(summary = {}, kind = 'departure') {
@@ -293,20 +464,20 @@
           : depDoneRaw.filter(x => (x?.status || '').toLowerCase() === 'active');
 
         return `<div class="panel">
-          <h4>Arrivals, completed examples</h4>
+          <h4>${t('arrivalsCompletedExamples')}</h4>
           ${rows(arrDone, 'arrival')}
-          <h4 style="margin-top:12px;">Departures, completed examples</h4>
+          <h4 style="margin-top:12px;">${t('departuresCompletedExamples')}</h4>
           ${rows(depDone, 'departure')}
-          <h4 style="margin-top:12px;">Departures, in progress examples</h4>
+          <h4 style="margin-top:12px;">${t('departuresInProgressExamples')}</h4>
           ${rows(depActive, 'departure')}
-          <h4 style="margin-top:12px;">Departures, planned examples</h4>
+          <h4 style="margin-top:12px;">${t('departuresPlannedExamples')}</h4>
           ${rows(depPlanned, 'departure')}
         </div>`;
       }
 
       function refreshFilterOptions(days) {
         const current = dayFilterEl.value || 'all';
-        dayFilterEl.innerHTML = '<option value="all">All days</option>' +
+        dayFilterEl.innerHTML = `<option value="all">${t('allDays')}</option>` +
           days.map(d => `<option value="${d}">${fmtDay(d)} (${d})</option>`).join('');
         dayFilterEl.value = days.includes(current) ? current : 'all';
       }
@@ -315,7 +486,7 @@
         payloadCache = payload;
         const generated = payload.generated_at ? new Date(payload.generated_at).toLocaleString() : 'not generated yet';
         const dayCount = Object.keys(payload.days || {}).length;
-        metaEl.textContent = `Airport ${payload.airport || 'TLV'} • Updated ${generated} • ${dayCount} days`;
+        metaEl.textContent = t('airportUpdated', payload.airport || 'TLV', generated, dayCount);
 
         const sortedDays = Object.keys(payload.days || {}).sort();
         const order = sortOrderEl.value || 'desc';
@@ -326,7 +497,7 @@
         const visibleDays = filter === 'all' ? days : days.filter(d => d === filter);
 
         if (!visibleDays.length) {
-          cardsEl.innerHTML = '<div class="day-card">No data for selected filter.</div>';
+          cardsEl.innerHTML = `<div class="day-card">${t('noDataForFilter')}</div>`;
           return;
         }
 
@@ -338,20 +509,20 @@
           const depS = dep.summary || {};
           const arrC = normalizeCounts(arrS, 'arrival');
           const depC = normalizeCounts(depS, 'departure');
-          const arrErr = arrS.error ? `<div class="err">Arrival error: ${arrS.error}</div>` : '';
-          const depErr = depS.error ? `<div class="err">Departure error: ${depS.error}</div>` : '';
+          const arrErr = arrS.error ? `<div class="err">${t('arrivalError', arrS.error)}</div>` : '';
+          const depErr = depS.error ? `<div class="err">${t('departureError', depS.error)}</div>` : '';
           const isOpen = openDays.has(day);
 
           return `<section class="day-card" data-day="${day}" role="listitem">
             <div class="day-head">
               <div class="day">${fmtDay(day)} <span class="small">(${day})</span></div>
-              <div class="small">arr: ${arr.endpoint_mode || '-'} • dep: ${dep.endpoint_mode || '-'}</div>
+              <div class="small">${t('endpointModes', arr.endpoint_mode || '-', dep.endpoint_mode || '-')}</div>
             </div>
             <div class="grid2">
-              ${metric('Arrivals', arrC.completed, arrC.in_progress, arrC.planned)}
-              ${metric('Departures', depC.completed, depC.in_progress, depC.planned)}
+              ${metric(t('arrivals'), arrC.completed, arrC.in_progress, arrC.planned)}
+              ${metric(t('departures'), depC.completed, depC.in_progress, depC.planned)}
             </div>
-            <button class="open-btn" data-open-day="${day}">${isOpen ? 'Hide details' : 'Show flight details'}</button>
+            <button class="open-btn" data-open-day="${day}">${isOpen ? t('hideDetails') : t('showDetails')}</button>
             ${isOpen ? detailsPanel(dayData) : ''}
             ${arrErr}${depErr}
           </section>`;
@@ -407,7 +578,7 @@
 
         if (!matches.length) {
           searchResultsEl.style.display = 'block';
-          searchResultsEl.innerHTML = `<div class="day"><strong>NOT FOUND</strong></div><div class="small" style="margin-top:6px;">No flight or airline matched "${escapeHtml(qRaw)}"</div>`;
+          searchResultsEl.innerHTML = `<div class="day"><strong>${t('notFound')}</strong></div><div class="small" style="margin-top:6px;">${t('noMatch')} "${escapeHtml(qRaw)}"</div>`;
           return;
         }
 
@@ -423,12 +594,12 @@
               <td>${escapeHtml(type === 'arrival' ? (row.scheduled_arr || 'n/a') : (row.scheduled_dep || 'n/a'))}</td>
               <td><a class="track-link" href="${flightRadarUrl(row.flight)}" target="_blank" rel="noopener noreferrer" title="Track on Flightradar24">✈️</a></td>
             </tr>`).join('');
-            return `<h4 style="margin:10px 0 6px 0;">${escapeHtml(day)} • ${rowsForDay.length} match(es)</h4>
-              <div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Type</th><th>Status</th><th>Route</th><th>Scheduled</th><th>Track</th></tr></thead><tbody>${body}</tbody></table></div>`;
+            return `<h4 style="margin:10px 0 6px 0;">${escapeHtml(day)} • ${t('matches', rowsForDay.length)}</h4>
+              <div class="narrow"><table><thead><tr><th>${t('flight')}</th><th>${t('airline')}</th><th>${t('type')}</th><th>${t('status')}</th><th>${t('route')}</th><th>${t('scheduled')}</th><th>${t('track')}</th></tr></thead><tbody>${body}</tbody></table></div>`;
           }).join('');
 
         searchResultsEl.style.display = 'block';
-        searchResultsEl.innerHTML = `<div class="day"><strong>Found ${matches.length}</strong> result(s) for "${escapeHtml(qRaw)}"</div>${sections}`;
+        searchResultsEl.innerHTML = `<div class="day"><strong>${t('foundN', matches.length)}</strong> ${t('resultsFor', escapeHtml(qRaw))}</div>${sections}`;
       }
 
       async function loadData() {
@@ -441,7 +612,7 @@
 
       async function refreshData() {
         refreshBtn.disabled = true;
-        refreshBtn.textContent = 'Refreshing...';
+        refreshBtn.textContent = t('refreshing');
         try {
           const res = await fetch(refreshEndpoint, {
             method: 'POST',
@@ -451,18 +622,25 @@
           const body = await res.json().catch(() => ({}));
           if (!res.ok) throw new Error(body.error || `refresh failed (${res.status})`);
 
-          refreshBtn.textContent = 'Refreshed!';
+          refreshBtn.textContent = t('refreshed');
           await loadData().catch(() => {});
           await sleep(5000);
         } catch (e) {
           alert(e.message || 'refresh failed');
         } finally {
           refreshBtn.disabled = false;
-          refreshBtn.textContent = 'Refresh now';
+          refreshBtn.textContent = t('refreshNow');
         }
       }
 
       refreshBtn.addEventListener('click', refreshData);
+      langToggleBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'he' : 'en';
+        localStorage.setItem('tlv_lang', currentLang);
+        applyLang();
+        if (payloadCache) render(payloadCache);
+        runSearch();
+      });
       dayFilterEl.addEventListener('change', () => payloadCache && render(payloadCache));
       sortOrderEl.addEventListener('change', () => payloadCache && render(payloadCache));
       searchBtnEl.addEventListener('click', runSearch);
@@ -473,8 +651,9 @@
         }
       });
 
+      applyLang();
       loadData().catch(err => {
-        metaEl.textContent = 'Failed to load data';
+        metaEl.textContent = t('failedLoad');
         cardsEl.innerHTML = `<div class="day-card err">${err.message}</div>`;
       });
     </script>
