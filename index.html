@@ -182,7 +182,7 @@
     </div>
 
     <script>
-      const dataUrl = './data/flights.json';
+      const dataUrl = `./data/flights.json?v=${Date.now()}`;
       const refreshEndpoint = window.REFRESH_ENDPOINT || 'https://avi-tlv-refresh-worker.baronclaw.workers.dev/api/refresh';
 
       const cardsEl = document.getElementById('cards');
