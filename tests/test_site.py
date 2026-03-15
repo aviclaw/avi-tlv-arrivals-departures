@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+import json
+import re
+import subprocess
+import urllib.request
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+INDEX = ROOT / "index.html"
+DATA = ROOT / "data" / "flights.json"
+WORKER_URL = "https://avi-tlv-refresh-worker.baronclaw.workers.dev/api/refresh"
+ALLOWED_ORIGIN = "https://aviclaw.github.io"
+
+
+def test_1_details_renderer_not_broken_placeholder() -> None:
+    html = INDEX.read_text(encoding="utf-8")
+
+    # Regression guard for the exact bug reported by Max
+    assert "<tbody>$${''}</tbody>" not in html, "details table still uses broken '$' placeholder"
+
+    # Ensure renderer uses computed body rows
+    assert "const body = items.map" in html
+    assert "<tbody>${body}</tbody>" in html
+
+    payload = json.loads(DATA.read_text(encoding="utf-8"))
+    day = payload["days"]["2026-03-10"]
+    arr_examples = day["arrival"]["summary"]["completed_examples"]
+    assert len(arr_examples) > 0, "expected arrival examples for details panel"
+
+
+def test_2_refresh_endpoint_cors_and_post() -> None:
+    # CORS preflight must succeed for browser fetch
+    opt = subprocess.run(
+        [
+            "curl",
+            "-i",
+            "-sS",
+            "-X",
+            "OPTIONS",
+            WORKER_URL,
+            "-H",
+            f"Origin: {ALLOWED_ORIGIN}",
+            "-H",
+            "Access-Control-Request-Method: POST",
+        ],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    out = opt.stdout
+    assert "HTTP/2 204" in out or "HTTP/1.1 204" in out
+    assert f"access-control-allow-origin: {ALLOWED_ORIGIN}" in out.lower()
+    assert "access-control-allow-methods: post, options" in out.lower()
+
+    # Actual POST should be reachable; can be 200 or 429 depending on anti-abuse lock
+    post = subprocess.run(
+        [
+            "curl",
+            "-i",
+            "-sS",
+            "-X",
+            "POST",
+            WORKER_URL,
+            "-H",
+            f"Origin: {ALLOWED_ORIGIN}",
+            "-H",
+            "Content-Type: application/json",
+            "--data",
+            '{"from":"test-suite"}',
+        ],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    pout = post.stdout
+    assert (
+        "HTTP/2 200" in pout
+        or "HTTP/1.1 200" in pout
+        or "HTTP/2 429" in pout
+        or "HTTP/1.1 429" in pout
+    ), "unexpected POST status"
+    assert f"access-control-allow-origin: {ALLOWED_ORIGIN}" in pout.lower()
+    assert '"ok":true' in pout.lower() or '"error":' in pout.lower()
+
+
+def test_no_credential_like_strings_in_tracked_text_files() -> None:
+    suspicious_patterns = [
+        re.compile(r"(?i)(api[_-]?key|token|secret|password)\s*[:=]\s*['\"]?[A-Za-z0-9_\-]{16,}"),
+        re.compile(r"ghp_[A-Za-z0-9]{20,}"),
+        re.compile(r"xox[baprs]-[A-Za-z0-9-]{10,}"),
+    ]
+
+    allowlist_paths = {
+        ".env.example",  # placeholders allowed
+    }
+
+    for p in ROOT.rglob("*"):
+        if not p.is_file():
+            continue
+        rel = str(p.relative_to(ROOT))
+        if rel.startswith(".git/") or rel.startswith(".wrangler/"):
+            continue
+        if rel in allowlist_paths:
+            continue
+
+        # best-effort text-only scan
+        try:
+            content = p.read_text(encoding="utf-8")
+        except Exception:
+            continue
+
+        for pat in suspicious_patterns:
+            m = pat.search(content)
+            assert not m, f"possible credential pattern found in {rel}"
+
+
+if __name__ == "__main__":
+    test_1_details_renderer_not_broken_placeholder()
+    test_2_refresh_endpoint_cors_and_post()
+    test_no_credential_like_strings_in_tracked_text_files()
+    print("all tests passed")
