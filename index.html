@@ -43,16 +43,15 @@
 
     <script>
       const dataUrl = './data/flights.json';
-      const refreshEndpoint = window.REFRESH_ENDPOINT || '';
-      const refreshToken = window.REFRESH_TOKEN || '';
+      const refreshEndpoint = window.REFRESH_ENDPOINT || 'https://avi-tlv-refresh-worker.baronclaw.workers.dev/api/refresh';
 
       const cardsEl = document.getElementById('cards');
       const metaEl = document.getElementById('meta');
       const refreshBtn = document.getElementById('refreshBtn');
 
-      if (!refreshEndpoint || !refreshToken) {
+      if (!refreshEndpoint) {
         refreshBtn.disabled = true;
-        refreshBtn.title = 'Refresh endpoint/token not configured';
+        refreshBtn.title = 'Refresh endpoint not configured';
       }
 
       const fmtDay = (iso) => {
@@ -88,7 +87,7 @@
       }
 
       async function refreshData() {
-        if (!refreshEndpoint || !refreshToken) return;
+        if (!refreshEndpoint) return;
         refreshBtn.disabled = true;
         refreshBtn.textContent = 'Refreshing...';
         try {
@@ -110,8 +109,5 @@
         cardsEl.innerHTML = `<div class="day-card err">${err.message}</div>`;
       });
     </script>
-  </body>
-</html>
-</script>
   </body>
 </html>

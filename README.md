@@ -11,7 +11,7 @@ GitHub Pages dashboard for TLV arrivals/departures.
 
 ## Security model
 - API key is server-side only: GitHub secret `AVIATION_EDGE_API_KEY`
-- Manual refresh endpoint protected by `x-refresh-token`
+- Manual refresh endpoint protected by origin checks + Worker-side rate limits
 - Worker rate limits:
   - per-IP cooldown: 30s
   - global cap: 12 refreshes / 10 minutes
@@ -29,9 +29,8 @@ Enable GitHub Pages for this repo (Actions workflow `pages.yml` handles deploy).
 ### 3) Cloudflare Worker
 Create KV namespace and update `wrangler.jsonc` `kv_namespaces[0].id`.
 
-Set Worker secrets:
+Set Worker secret:
 - `GITHUB_TOKEN` (token with actions:write for this repo)
-- `REFRESH_TOKEN` (shared secret for browser button)
 
 Deploy:
 ```bash
@@ -39,9 +38,8 @@ wrangler deploy
 ```
 
 ### 4) Wire frontend runtime config
-Set in `index.html` via an injected script at deploy time or maintain a small `config.js` that is not committed with secret values:
+Set in `index.html` via an injected script at deploy time or maintain a small `config.js`:
 - `window.REFRESH_ENDPOINT`
-- `window.REFRESH_TOKEN`
 
 ## Notes
 - Do not commit `.env` or real tokens.

@@ -57,8 +57,9 @@ export default {
       method: 'POST',
       headers: {
         'Accept': 'application/vnd.github+json',
-        'Authorization': `Bearer ${env.GITHUB_TOKEN}`,
+        'Authorization': `token ${env.GITHUB_TOKEN}`,
         'X-GitHub-Api-Version': '2022-11-28',
+        'User-Agent': 'avi-tlv-refresh-worker',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ ref: 'main', inputs: { reason: 'manual-refresh-button' } })
@@ -82,8 +83,9 @@ export default {
       method: 'POST',
       headers: {
         'Accept': 'application/vnd.github+json',
-        'Authorization': `Bearer ${env.GITHUB_TOKEN}`,
+        'Authorization': `token ${env.GITHUB_TOKEN}`,
         'X-GitHub-Api-Version': '2022-11-28',
+        'User-Agent': 'avi-tlv-refresh-worker',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ ref: 'main', inputs: { reason: 'scheduled-4h-worker' } })
