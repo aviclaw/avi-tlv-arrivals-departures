@@ -167,6 +167,7 @@ def test_no_credential_like_strings_in_tracked_text_files() -> None:
 
     allowlist_paths = {
         ".env.example",  # placeholders allowed
+        ".github/workflows/deploy-worker.yml",  # references secret names only
     }
 
     for p in ROOT.rglob("*"):
