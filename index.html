@@ -5,28 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TLV Arrivals & Departures</title>
     <style>
-      :root { --bg:#0b1020; --card:#121933; --text:#e8ecff; --muted:#9fa9d1; --good:#3ddc97; --warn:#ffd166; --accent:#7aa2ff; }
+      :root {
+        --bg: #f4f8ff;
+        --surface: #ffffff;
+        --surface-2: #edf3ff;
+        --text: #0b2c6f;
+        --muted: #4c6294;
+        --brand: #003b8f;
+        --brand-2: #0057d8;
+        --accent: #f4c430;
+        --ok: #0f9d58;
+        --warn: #e57a00;
+        --border: #c8d8f5;
+      }
       * { box-sizing: border-box; }
-      body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,#090e1a 0%,#0b1020 100%); color:var(--text); }
-      .container { max-width:1100px; margin:0 auto; padding:24px 16px 40px; }
-      .top { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
-      h1 { margin:0; font-size:1.6rem; }
-      .meta { color:var(--muted); font-size:0.95rem; }
-      .btn { background:var(--accent); color:#0b1020; border:0; font-weight:700; padding:10px 14px; border-radius:10px; cursor:pointer; }
-      .btn:disabled { opacity:.6; cursor:not-allowed; }
-      .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; margin-top:18px; }
-      .day-card { background:var(--card); border:1px solid #1e2a54; border-radius:14px; padding:14px; }
-      .day-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
-      .day { font-weight:700; }
-      .endpoint { color:var(--muted); font-size:.82rem; }
-      .split { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-      .metric { background:#0d1430; border:1px solid #20316b; border-radius:10px; padding:10px; }
-      .label { color:var(--muted); font-size:.8rem; margin-bottom:4px; }
-      .value { font-size:1.05rem; font-weight:700; }
-      .ok { color:var(--good); }
-      .planned { color:var(--warn); }
-      .err { margin-top:12px; background:#3a1720; border:1px solid #7a2639; color:#ffc5d2; padding:10px; border-radius:10px; }
-      .small { font-size:.8rem; color:var(--muted); }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        color: var(--text);
+        background: radial-gradient(circle at top right, #dbe9ff 0%, #f7fbff 35%, #f4f8ff 100%);
+      }
+      .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px 40px; }
+      .top {
+        display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 65%, #1976ff 100%);
+        color: #fff; border-radius: 16px; padding: 18px;
+        box-shadow: 0 10px 24px rgba(0, 59, 143, 0.22);
+      }
+      h1 { margin: 0 0 6px 0; font-size: 1.5rem; }
+      .meta { color: #e6efff; font-size: .95rem; }
+      .btn {
+        background: var(--accent); color: #001c49; border: 0; font-weight: 800;
+        padding: 10px 14px; border-radius: 10px; cursor: pointer;
+      }
+      .btn:disabled { opacity: .65; cursor: not-allowed; }
+      .cards {
+        margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;
+      }
+      .day-card {
+        background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px;
+        box-shadow: 0 6px 16px rgba(0, 59, 143, 0.08);
+      }
+      .day-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+      .day { font-size: 1.03rem; font-weight: 800; }
+      .small { font-size: .8rem; color: var(--muted); }
+      .grid2 { margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .metric { background: var(--surface-2); border: 1px solid #d7e4fb; border-radius: 10px; padding: 10px; }
+      .label { color: var(--muted); font-size: .8rem; margin-bottom: 4px; }
+      .value { font-weight: 700; font-size: 1rem; }
+      .ok { color: var(--ok); }
+      .planned { color: var(--warn); }
+      .open-btn {
+        margin-top: 10px; width: 100%; border: 1px solid #c0d3fb; background: #f4f8ff; color: var(--brand);
+        font-weight: 700; border-radius: 10px; padding: 9px; cursor: pointer;
+      }
+      .err { margin-top: 12px; background: #ffe9e9; border: 1px solid #ffc3c3; color: #9b1e1e; padding: 10px; border-radius: 10px; }
+
+      .panel {
+        margin-top: 10px; padding: 10px; border: 1px solid #d8e5ff; border-radius: 10px; background: #fbfdff;
+      }
+      .panel h4 { margin: 4px 0 8px 0; color: var(--brand); }
+      table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+      th, td { border-bottom: 1px solid #e3ecff; padding: 6px 4px; text-align: left; white-space: nowrap; }
+      th { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+      td.route { font-weight: 700; color: #123a84; }
+      .chip {
+        display: inline-block; padding: 2px 7px; border-radius: 999px; font-weight: 700; font-size: .73rem;
+        background: #dff5e8; color: #0d7c45;
+      }
+      .narrow { overflow-x: auto; }
     </style>
   </head>
   <body>
@@ -38,7 +85,7 @@
         </div>
         <button id="refreshBtn" class="btn">Refresh now</button>
       </div>
-      <div id="cards" class="grid"></div>
+      <div id="cards" class="cards"></div>
     </div>
 
     <script>
@@ -48,36 +95,86 @@
       const cardsEl = document.getElementById('cards');
       const metaEl = document.getElementById('meta');
       const refreshBtn = document.getElementById('refreshBtn');
-
-      if (!refreshEndpoint) {
-        refreshBtn.disabled = true;
-        refreshBtn.title = 'Refresh endpoint not configured';
-      }
+      let payloadCache = null;
+      const openDays = new Set();
 
       const fmtDay = (iso) => {
         const d = new Date(iso + 'T00:00:00Z');
         return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
       };
+      const fmtTime = (s) => s ? s.replace('.000', '') : 'n/a';
 
       function metric(title, completed, planned) {
         return `<div class="metric"><div class="label">${title}</div><div class="value ok">Completed: ${completed ?? 0}</div><div class="value planned">Planned: ${planned ?? 0}</div></div>`;
       }
 
+      function rows(items = [], type = 'arrival') {
+        if (!items.length) return '<div class="small">No completed examples.</div>';
+        return `<div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Route</th><th>Status</th><th>Sched ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Actual ${type === 'arrival' ? 'Arr' : 'Dep'}</th></tr></thead><tbody>$${''}</tbody></table></div>`
+          .replace('$' + '{\'\'}', items.map(it => `<tr>
+            <td>${it.flight || 'n/a'}</td>
+            <td>${it.airline || 'n/a'}</td>
+            <td class="route">${it.dep || '---'} → ${it.arr || '---'}</td>
+            <td><span class="chip">${it.status || 'unknown'}</span></td>
+            <td>${fmtTime(type === 'arrival' ? it.scheduled_arr : it.scheduled_dep)}</td>
+            <td>${fmtTime(type === 'arrival' ? it.actual_arr : it.actual_dep)}</td>
+          </tr>`).join(''));
+      }
+
+      function detailsPanel(dayData) {
+        const arrList = dayData?.arrival?.summary?.completed_examples || [];
+        const depList = dayData?.departure?.summary?.completed_examples || [];
+        return `<div class="panel">
+          <h4>Arrivals details</h4>
+          ${rows(arrList, 'arrival')}
+          <h4 style="margin-top:12px;">Departures details</h4>
+          ${rows(depList, 'departure')}
+        </div>`;
+      }
+
       function render(payload) {
+        payloadCache = payload;
         const generated = payload.generated_at ? new Date(payload.generated_at).toLocaleString() : 'not generated yet';
         metaEl.textContent = `Airport ${payload.airport || 'TLV'} • Updated ${generated}`;
-        const days = Object.keys(payload.days || {}).sort();
-        if (!days.length) { cardsEl.innerHTML = '<div class="day-card">No data yet.</div>'; return; }
 
-        cardsEl.innerHTML = days.reverse().map(day => {
-          const arr = payload.days[day]?.arrival || {};
-          const dep = payload.days[day]?.departure || {};
+        const days = Object.keys(payload.days || {}).sort().reverse();
+        if (!days.length) {
+          cardsEl.innerHTML = '<div class="day-card">No data yet.</div>';
+          return;
+        }
+
+        cardsEl.innerHTML = days.map(day => {
+          const dayData = payload.days[day] || {};
+          const arr = dayData.arrival || {};
+          const dep = dayData.departure || {};
           const arrS = arr.summary || {};
           const depS = dep.summary || {};
           const arrErr = arrS.error ? `<div class="err">Arrival error: ${arrS.error}</div>` : '';
           const depErr = depS.error ? `<div class="err">Departure error: ${depS.error}</div>` : '';
-          return `<section class="day-card"><div class="day-header"><div class="day">${fmtDay(day)} <span class="small">(${day})</span></div><div class="endpoint">arr: ${arr.endpoint_mode || '-'} • dep: ${dep.endpoint_mode || '-'}</div></div><div class="split">${metric('Arrivals', arrS.counts?.completed, arrS.counts?.planned)}${metric('Departures', depS.counts?.completed, depS.counts?.planned)}</div>${arrErr}${depErr}</section>`;
+          const isOpen = openDays.has(day);
+
+          return `<section class="day-card" data-day="${day}">
+            <div class="day-head">
+              <div class="day">${fmtDay(day)} <span class="small">(${day})</span></div>
+              <div class="small">arr: ${arr.endpoint_mode || '-'} • dep: ${dep.endpoint_mode || '-'}</div>
+            </div>
+            <div class="grid2">
+              ${metric('Arrivals', arrS.counts?.completed, arrS.counts?.planned)}
+              ${metric('Departures', depS.counts?.completed, depS.counts?.planned)}
+            </div>
+            <button class="open-btn" data-open-day="${day}">${isOpen ? 'Hide details' : 'Show flight details'}</button>
+            ${isOpen ? detailsPanel(dayData) : ''}
+            ${arrErr}${depErr}
+          </section>`;
         }).join('');
+
+        document.querySelectorAll('[data-open-day]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const day = btn.getAttribute('data-open-day');
+            if (openDays.has(day)) openDays.delete(day); else openDays.add(day);
+            render(payloadCache);
+          });
+        });
       }
 
       async function loadData() {
@@ -87,16 +184,19 @@
       }
 
       async function refreshData() {
-        if (!refreshEndpoint) return;
         refreshBtn.disabled = true;
         refreshBtn.textContent = 'Refreshing...';
         try {
-          const res = await fetch(refreshEndpoint, { method: 'POST' });
+          const res = await fetch(refreshEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ from: 'web' })
+          });
           const body = await res.json().catch(() => ({}));
           if (!res.ok) throw new Error(body.error || `refresh failed (${res.status})`);
-          alert(body.message || 'Refresh triggered, wait ~1 minute then reload.');
+          alert(body.message || 'Refresh queued. Reload in ~1 minute.');
         } catch (e) {
-          alert(e.message);
+          alert(e.message || 'refresh failed');
         } finally {
           refreshBtn.disabled = false;
           refreshBtn.textContent = 'Refresh now';
