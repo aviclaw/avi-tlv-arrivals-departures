@@ -25,7 +25,7 @@
         color: var(--text);
         background: radial-gradient(circle at top right, #dbe9ff 0%, #f7fbff 35%, #f4f8ff 100%);
       }
-      .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px 40px; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px 40px; }
       .top {
         display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
         background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 65%, #1976ff 100%);
@@ -34,13 +34,28 @@
       }
       h1 { margin: 0 0 6px 0; font-size: 1.5rem; }
       .meta { color: #e6efff; font-size: .95rem; }
+      .submeta { color: #dbe7ff; font-size: .85rem; margin-top: 4px; }
       .btn {
         background: var(--accent); color: #001c49; border: 0; font-weight: 800;
         padding: 10px 14px; border-radius: 10px; cursor: pointer;
       }
       .btn:disabled { opacity: .65; cursor: not-allowed; }
+      .controls {
+        margin-top: 14px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .control {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 8px 10px;
+        color: var(--text);
+      }
       .cards {
-        margin-top: 18px;
+        margin-top: 14px;
         display: flex;
         flex-direction: column;
         gap: 12px;
@@ -61,9 +76,14 @@
       .value { font-weight: 700; font-size: 1rem; }
       .ok { color: var(--ok); }
       .planned { color: var(--warn); }
+      .metric .value + .value { margin-top: 2px; }
       .open-btn {
         margin-top: 10px; width: 100%; border: 1px solid #c0d3fb; background: #f4f8ff; color: var(--brand);
         font-weight: 700; border-radius: 10px; padding: 9px; cursor: pointer;
+      }
+      .open-btn:focus, .btn:focus, .control:focus {
+        outline: 3px solid rgba(0, 87, 216, 0.25);
+        outline-offset: 1px;
       }
       .err { margin-top: 12px; background: #ffe9e9; border: 1px solid #ffc3c3; color: #9b1e1e; padding: 10px; border-radius: 10px; }
 
@@ -91,7 +111,16 @@
         </div>
         <button id="refreshBtn" class="btn">Refresh now</button>
       </div>
-      <div id="cards" class="cards"></div>
+      <div class="controls">
+        <label for="dayFilter" class="small" style="font-weight:700;">Filter day</label>
+        <select id="dayFilter" class="control" aria-label="Filter by day"></select>
+        <label for="sortOrder" class="small" style="font-weight:700;">Sort</label>
+        <select id="sortOrder" class="control" aria-label="Sort days">
+          <option value="desc">Newest first</option>
+          <option value="asc">Oldest first</option>
+        </select>
+      </div>
+      <div id="cards" class="cards" role="list" aria-live="polite"></div>
     </div>
 
     <script>
@@ -101,6 +130,8 @@
       const cardsEl = document.getElementById('cards');
       const metaEl = document.getElementById('meta');
       const refreshBtn = document.getElementById('refreshBtn');
+      const dayFilterEl = document.getElementById('dayFilter');
+      const sortOrderEl = document.getElementById('sortOrder');
       let payloadCache = null;
       const openDays = new Set();
 
@@ -138,18 +169,33 @@
         </div>`;
       }
 
+      function refreshFilterOptions(days) {
+        const current = dayFilterEl.value || 'all';
+        dayFilterEl.innerHTML = '<option value="all">All days</option>' +
+          days.map(d => `<option value="${d}">${fmtDay(d)} (${d})</option>`).join('');
+        dayFilterEl.value = days.includes(current) ? current : 'all';
+      }
+
       function render(payload) {
         payloadCache = payload;
         const generated = payload.generated_at ? new Date(payload.generated_at).toLocaleString() : 'not generated yet';
-        metaEl.textContent = `Airport ${payload.airport || 'TLV'} • Updated ${generated}`;
+        const dayCount = Object.keys(payload.days || {}).length;
+        metaEl.textContent = `Airport ${payload.airport || 'TLV'} • Updated ${generated} • ${dayCount} days`;
 
-        const days = Object.keys(payload.days || {}).sort().reverse();
-        if (!days.length) {
-          cardsEl.innerHTML = '<div class="day-card">No data yet.</div>';
+        const sortedDays = Object.keys(payload.days || {}).sort();
+        const order = sortOrderEl.value || 'desc';
+        const days = order === 'asc' ? sortedDays : [...sortedDays].reverse();
+        refreshFilterOptions(days);
+
+        const filter = dayFilterEl.value || 'all';
+        const visibleDays = filter === 'all' ? days : days.filter(d => d === filter);
+
+        if (!visibleDays.length) {
+          cardsEl.innerHTML = '<div class="day-card">No data for selected filter.</div>';
           return;
         }
 
-        cardsEl.innerHTML = days.map(day => {
+        cardsEl.innerHTML = visibleDays.map(day => {
           const dayData = payload.days[day] || {};
           const arr = dayData.arrival || {};
           const dep = dayData.departure || {};
@@ -159,7 +205,7 @@
           const depErr = depS.error ? `<div class="err">Departure error: ${depS.error}</div>` : '';
           const isOpen = openDays.has(day);
 
-          return `<section class="day-card" data-day="${day}">
+          return `<section class="day-card" data-day="${day}" role="listitem">
             <div class="day-head">
               <div class="day">${fmtDay(day)} <span class="small">(${day})</span></div>
               <div class="small">arr: ${arr.endpoint_mode || '-'} • dep: ${dep.endpoint_mode || '-'}</div>
@@ -210,6 +256,9 @@
       }
 
       refreshBtn.addEventListener('click', refreshData);
+      dayFilterEl.addEventListener('change', () => payloadCache && render(payloadCache));
+      sortOrderEl.addEventListener('change', () => payloadCache && render(payloadCache));
+
       loadData().catch(err => {
         metaEl.textContent = 'Failed to load data';
         cardsEl.innerHTML = `<div class="day-card err">${err.message}</div>`;
