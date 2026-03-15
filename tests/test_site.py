@@ -119,6 +119,15 @@ def test_6_status_label_maps_active_to_in_progress_for_display() -> None:
     assert "${humanStatus(it.status)}" in html
 
 
+def test_7_footer_documents_data_source_and_flightradar_usage() -> None:
+    html = INDEX.read_text(encoding="utf-8")
+    assert "Aviation Edge API" in html
+    assert "https://aviation-edge.com/" in html
+    assert "aggregates flight schedule/status data" in html
+    assert "Flightradar24" in html
+    assert "https://www.flightradar24.com/" in html
+
+
 def test_no_credential_like_strings_in_tracked_text_files() -> None:
     suspicious_patterns = [
         re.compile(r"(?i)(api[_-]?key|token|secret|password)\s*[:=]\s*['\"]?[A-Za-z0-9_\-]{16,}"),

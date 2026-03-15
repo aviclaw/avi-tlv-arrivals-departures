@@ -114,6 +114,17 @@
       }
       .track-link:hover { background: #e8f1ff; }
       .narrow { overflow-x: auto; }
+      .footer-note {
+        margin-top: 18px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: #f8fbff;
+        color: var(--muted);
+        font-size: .84rem;
+        line-height: 1.45;
+      }
+      .footer-note a { color: var(--brand); font-weight: 700; }
     </style>
   </head>
   <body>
@@ -143,6 +154,15 @@
       <div id="searchResults" class="day-card" style="display:none; margin-top:12px;"></div>
 
       <div id="cards" class="cards" role="list" aria-live="polite"></div>
+
+      <footer class="footer-note">
+        <div>
+          Data source: <a href="https://aviation-edge.com/" target="_blank" rel="noopener noreferrer">Aviation Edge API</a>. Aviation Edge fetches and aggregates flight schedule/status data from airport systems and airline/ATC feeds.
+        </div>
+        <div style="margin-top:6px;">
+          Flight tracking links use <a href="https://www.flightradar24.com/" target="_blank" rel="noopener noreferrer">Flightradar24</a> for flight pages and live tracking context.
+        </div>
+      </footer>
     </div>
 
     <script>
