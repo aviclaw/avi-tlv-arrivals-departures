@@ -235,6 +235,8 @@
         render(await res.json());
       }
 
+      const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
       async function refreshData() {
         refreshBtn.disabled = true;
         refreshBtn.textContent = 'Refreshing...';
@@ -246,7 +248,10 @@
           });
           const body = await res.json().catch(() => ({}));
           if (!res.ok) throw new Error(body.error || `refresh failed (${res.status})`);
-          alert(body.message || 'Refresh queued. Reload in ~1 minute.');
+
+          refreshBtn.textContent = 'Refreshed!';
+          await loadData().catch(() => {});
+          await sleep(5000);
         } catch (e) {
           alert(e.message || 'refresh failed');
         } finally {
