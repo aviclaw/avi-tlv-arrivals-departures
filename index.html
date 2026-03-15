@@ -110,15 +110,15 @@
 
       function rows(items = [], type = 'arrival') {
         if (!items.length) return '<div class="small">No completed examples.</div>';
-        return `<div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Route</th><th>Status</th><th>Sched ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Actual ${type === 'arrival' ? 'Arr' : 'Dep'}</th></tr></thead><tbody>$${''}</tbody></table></div>`
-          .replace('$' + '{\'\'}', items.map(it => `<tr>
+        const body = items.map(it => `<tr>
             <td>${it.flight || 'n/a'}</td>
             <td>${it.airline || 'n/a'}</td>
             <td class="route">${it.dep || '---'} → ${it.arr || '---'}</td>
             <td><span class="chip">${it.status || 'unknown'}</span></td>
             <td>${fmtTime(type === 'arrival' ? it.scheduled_arr : it.scheduled_dep)}</td>
             <td>${fmtTime(type === 'arrival' ? it.actual_arr : it.actual_dep)}</td>
-          </tr>`).join(''));
+          </tr>`).join('');
+        return `<div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Route</th><th>Status</th><th>Sched ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Actual ${type === 'arrival' ? 'Arr' : 'Dep'}</th></tr></thead><tbody>${body}</tbody></table></div>`;
       }
 
       function detailsPanel(dayData) {
