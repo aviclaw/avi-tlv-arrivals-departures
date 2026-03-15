@@ -31,7 +31,8 @@ jobs:
         env:
           AVIATION_EDGE_API_KEY: ${{ secrets.AVIATION_EDGE_API_KEY }}
           AIRPORT_IATA: TLV
-          LOOKBACK_DAYS: 6
+          LOOKBACK_DAYS: 7
+          AIRPORT_TZ: Asia/Jerusalem
         run: python scripts/fetch_flights.py
 
       - name: Commit refreshed data

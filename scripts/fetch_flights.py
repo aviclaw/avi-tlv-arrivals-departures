@@ -4,15 +4,17 @@ import os
 from collections import Counter
 from datetime import date, datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
 
 HISTORICAL_URL = "https://aviation-edge.com/v2/public/flightsHistory"
 LIVE_URL = "https://aviation-edge.com/v2/public/timetable"
 AIRPORT_IATA = os.getenv("AIRPORT_IATA", "TLV")
-LOOKBACK_DAYS = int(os.getenv("LOOKBACK_DAYS", "6"))
+LOOKBACK_DAYS = int(os.getenv("LOOKBACK_DAYS", "7"))
 OUT_PATH = Path(os.getenv("OUT_PATH", "data/flights.json"))
 API_KEY = os.getenv("AVIATION_EDGE_API_KEY")
+AIRPORT_TZ = os.getenv("AIRPORT_TZ", "Asia/Jerusalem")
 
 
 def parse_day(s: str) -> date:
@@ -197,7 +199,7 @@ def main():
     if not API_KEY:
         raise RuntimeError("AVIATION_EDGE_API_KEY is required as an environment variable")
 
-    as_of = date.today()
+    as_of = datetime.now(ZoneInfo(AIRPORT_TZ)).date()
     days = make_days(as_of, LOOKBACK_DAYS)
 
     payload = {

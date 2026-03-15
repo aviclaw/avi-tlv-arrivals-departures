@@ -138,6 +138,17 @@ def test_8_favicon_is_declared_and_present() -> None:
     assert 'width="16"' in svg and 'height="16"' in svg
 
 
+def test_9_refresh_job_tracks_new_tlv_day_automatically() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "refresh-data.yml").read_text(encoding="utf-8")
+    script = (ROOT / "scripts" / "fetch_flights.py").read_text(encoding="utf-8")
+
+    assert "LOOKBACK_DAYS: 7" in workflow
+    assert "AIRPORT_TZ: Asia/Jerusalem" in workflow
+    assert 'LOOKBACK_DAYS = int(os.getenv("LOOKBACK_DAYS", "7"))' in script
+    assert 'AIRPORT_TZ = os.getenv("AIRPORT_TZ", "Asia/Jerusalem")' in script
+    assert "datetime.now(ZoneInfo(AIRPORT_TZ)).date()" in script
+
+
 def test_no_credential_like_strings_in_tracked_text_files() -> None:
     suspicious_patterns = [
         re.compile(r"(?i)(api[_-]?key|token|secret|password)\s*[:=]\s*['\"]?[A-Za-z0-9_\-]{16,}"),
