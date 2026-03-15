@@ -112,6 +112,13 @@ def test_5_search_handles_not_found_flow() -> None:
     assert "No flight or airline matched" in html
 
 
+def test_6_status_label_maps_active_to_in_progress_for_display() -> None:
+    html = INDEX.read_text(encoding="utf-8")
+    assert "const humanStatus" in html
+    assert "if (v === 'active') return 'in progress';" in html
+    assert "${humanStatus(it.status)}" in html
+
+
 def test_no_credential_like_strings_in_tracked_text_files() -> None:
     suspicious_patterns = [
         re.compile(r"(?i)(api[_-]?key|token|secret|password)\s*[:=]\s*['\"]?[A-Za-z0-9_\-]{16,}"),

@@ -165,6 +165,11 @@
         return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
       };
       const fmtTime = (s) => s ? s.replace('.000', '') : 'n/a';
+      const humanStatus = (s) => {
+        const v = String(s || 'unknown').toLowerCase();
+        if (v === 'active') return 'in progress';
+        return v;
+      };
 
       function metric(title, completed, inProgress, planned) {
         return `<div class="metric"><div class="label">${title}</div><div class="value ok">Completed: ${completed ?? 0}</div><div class="value">In progress: ${inProgress ?? 0}</div><div class="value planned">Planned: ${planned ?? 0}</div></div>`;
@@ -182,7 +187,7 @@
             <td>${it.flight || 'n/a'}</td>
             <td>${it.airline || 'n/a'}</td>
             <td class="route">${it.dep || '---'} → ${it.arr || '---'}</td>
-            <td><span class="chip">${it.status || 'unknown'}</span></td>
+            <td><span class="chip">${humanStatus(it.status)}</span></td>
             <td>${fmtTime(type === 'arrival' ? it.scheduled_arr : it.scheduled_dep)}</td>
             <td>${fmtTime(type === 'arrival' ? it.actual_arr : it.actual_dep)}</td>
             <td>
@@ -391,7 +396,7 @@
               <td>${escapeHtml(row.flight || 'n/a')}</td>
               <td>${escapeHtml(row.airline || 'n/a')}</td>
               <td>${escapeHtml(type)}</td>
-              <td>${escapeHtml(row.status || 'unknown')}</td>
+              <td>${escapeHtml(humanStatus(row.status || 'unknown'))}</td>
               <td>${escapeHtml((row.dep || '---') + ' → ' + (row.arr || '---'))}</td>
               <td>${escapeHtml(type === 'arrival' ? (row.scheduled_arr || 'n/a') : (row.scheduled_dep || 'n/a'))}</td>
               <td><a class="track-link" href="${flightRadarUrl(row.flight)}" target="_blank" rel="noopener noreferrer" title="Track on Flightradar24">✈️</a></td>
