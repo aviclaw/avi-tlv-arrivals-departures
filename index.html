@@ -99,6 +99,20 @@
         display: inline-block; padding: 2px 7px; border-radius: 999px; font-weight: 700; font-size: .73rem;
         background: #dff5e8; color: #0d7c45;
       }
+      .track-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        border: 1px solid #c0d3fb;
+        background: #f4f8ff;
+        color: var(--brand);
+        text-decoration: none;
+        font-size: 1rem;
+      }
+      .track-link:hover { background: #e8f1ff; }
       .narrow { overflow-x: auto; }
     </style>
   </head>
@@ -145,8 +159,14 @@
         return `<div class="metric"><div class="label">${title}</div><div class="value ok">Completed: ${completed ?? 0}</div><div class="value">In progress: ${inProgress ?? 0}</div><div class="value planned">Planned: ${planned ?? 0}</div></div>`;
       }
 
+      function flightRadarUrl(flight) {
+        const clean = String(flight || '').trim();
+        if (!clean) return 'https://www.flightradar24.com/';
+        return `https://www.flightradar24.com/data/flights/${encodeURIComponent(clean.toLowerCase())}`;
+      }
+
       function rows(items = [], type = 'arrival') {
-        if (!items.length) return '<div class="small">No completed examples.</div>';
+        if (!items.length) return '<div class="small">No examples for this bucket.</div>';
         const body = items.map(it => `<tr>
             <td>${it.flight || 'n/a'}</td>
             <td>${it.airline || 'n/a'}</td>
@@ -154,8 +174,18 @@
             <td><span class="chip">${it.status || 'unknown'}</span></td>
             <td>${fmtTime(type === 'arrival' ? it.scheduled_arr : it.scheduled_dep)}</td>
             <td>${fmtTime(type === 'arrival' ? it.actual_arr : it.actual_dep)}</td>
+            <td>
+              <a
+                class="track-link"
+                href="${flightRadarUrl(it.flight)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Track ${it.flight || 'flight'} on Flightradar24"
+                title="Track on Flightradar24"
+              >✈️</a>
+            </td>
           </tr>`).join('');
-        return `<div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Route</th><th>Status</th><th>Sched ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Actual ${type === 'arrival' ? 'Arr' : 'Dep'}</th></tr></thead><tbody>${body}</tbody></table></div>`;
+        return `<div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Route</th><th>Status</th><th>Sched ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Actual ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Track</th></tr></thead><tbody>${body}</tbody></table></div>`;
       }
 
       function detailsPanel(dayData) {
