@@ -188,11 +188,53 @@
         return `<div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Route</th><th>Status</th><th>Sched ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Actual ${type === 'arrival' ? 'Arr' : 'Dep'}</th><th>Track</th></tr></thead><tbody>${body}</tbody></table></div>`;
       }
 
+      function normalizeCounts(summary = {}, kind = 'departure') {
+        const raw = summary?.counts || {};
+        const statusCounts = summary?.status_counts || {};
+        const completedExamples = summary?.completed_examples || [];
+
+        if (raw.in_progress != null) {
+          return {
+            completed: raw.completed ?? 0,
+            in_progress: raw.in_progress ?? 0,
+            planned: raw.planned ?? 0,
+          };
+        }
+
+        // Backward-compat with older data files where "active" was folded into completed
+        if (kind === 'departure') {
+          const active = statusCounts.active ?? 0;
+          const completedActiveRows = completedExamples.filter(x => (x?.status || '').toLowerCase() === 'active').length;
+          const inferredInProgress = Math.max(active, completedActiveRows);
+          return {
+            completed: Math.max(0, (raw.completed ?? 0) - inferredInProgress),
+            in_progress: inferredInProgress,
+            planned: raw.planned ?? 0,
+          };
+        }
+
+        return {
+          completed: raw.completed ?? 0,
+          in_progress: raw.in_progress ?? 0,
+          planned: raw.planned ?? 0,
+        };
+      }
+
       function detailsPanel(dayData) {
         const arrDone = dayData?.arrival?.summary?.completed_examples || [];
-        const depDone = dayData?.departure?.summary?.completed_examples || [];
-        const depActive = dayData?.departure?.summary?.in_progress_examples || [];
-        const depPlanned = dayData?.departure?.summary?.planned_examples || [];
+
+        const depSummary = dayData?.departure?.summary || {};
+        const depDoneRaw = depSummary?.completed_examples || [];
+        const depActiveRaw = depSummary?.in_progress_examples || [];
+        const depPlanned = depSummary?.planned_examples || [];
+
+        // Backward-compat split for older payloads
+        const depDone = depActiveRaw.length
+          ? depDoneRaw
+          : depDoneRaw.filter(x => (x?.status || '').toLowerCase() !== 'active');
+        const depActive = depActiveRaw.length
+          ? depActiveRaw
+          : depDoneRaw.filter(x => (x?.status || '').toLowerCase() === 'active');
 
         return `<div class="panel">
           <h4>Arrivals, completed examples</h4>
@@ -238,6 +280,8 @@
           const dep = dayData.departure || {};
           const arrS = arr.summary || {};
           const depS = dep.summary || {};
+          const arrC = normalizeCounts(arrS, 'arrival');
+          const depC = normalizeCounts(depS, 'departure');
           const arrErr = arrS.error ? `<div class="err">Arrival error: ${arrS.error}</div>` : '';
           const depErr = depS.error ? `<div class="err">Departure error: ${depS.error}</div>` : '';
           const isOpen = openDays.has(day);
@@ -248,8 +292,8 @@
               <div class="small">arr: ${arr.endpoint_mode || '-'} • dep: ${dep.endpoint_mode || '-'}</div>
             </div>
             <div class="grid2">
-              ${metric('Arrivals', arrS.counts?.completed, arrS.counts?.in_progress, arrS.counts?.planned)}
-              ${metric('Departures', depS.counts?.completed, depS.counts?.in_progress, depS.counts?.planned)}
+              ${metric('Arrivals', arrC.completed, arrC.in_progress, arrC.planned)}
+              ${metric('Departures', depC.completed, depC.in_progress, depC.planned)}
             </div>
             <button class="open-btn" data-open-day="${day}">${isOpen ? 'Hide details' : 'Show flight details'}</button>
             ${isOpen ? detailsPanel(dayData) : ''}
