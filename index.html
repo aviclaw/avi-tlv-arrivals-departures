@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TLV Arrivals & Departures</title>
+    <style>
+      :root { --bg:#0b1020; --card:#121933; --text:#e8ecff; --muted:#9fa9d1; --good:#3ddc97; --warn:#ffd166; --accent:#7aa2ff; }
+      * { box-sizing: border-box; }
+      body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,#090e1a 0%,#0b1020 100%); color:var(--text); }
+      .container { max-width:1100px; margin:0 auto; padding:24px 16px 40px; }
+      .top { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+      h1 { margin:0; font-size:1.6rem; }
+      .meta { color:var(--muted); font-size:0.95rem; }
+      .btn { background:var(--accent); color:#0b1020; border:0; font-weight:700; padding:10px 14px; border-radius:10px; cursor:pointer; }
+      .btn:disabled { opacity:.6; cursor:not-allowed; }
+      .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; margin-top:18px; }
+      .day-card { background:var(--card); border:1px solid #1e2a54; border-radius:14px; padding:14px; }
+      .day-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+      .day { font-weight:700; }
+      .endpoint { color:var(--muted); font-size:.82rem; }
+      .split { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+      .metric { background:#0d1430; border:1px solid #20316b; border-radius:10px; padding:10px; }
+      .label { color:var(--muted); font-size:.8rem; margin-bottom:4px; }
+      .value { font-size:1.05rem; font-weight:700; }
+      .ok { color:var(--good); }
+      .planned { color:var(--warn); }
+      .err { margin-top:12px; background:#3a1720; border:1px solid #7a2639; color:#ffc5d2; padding:10px; border-radius:10px; }
+      .small { font-size:.8rem; color:var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <div>
+          <h1>TLV Arrivals & Departures</h1>
+          <div id="meta" class="meta">Loading...</div>
+        </div>
+        <button id="refreshBtn" class="btn">Refresh now</button>
+      </div>
+      <div id="cards" class="grid"></div>
+    </div>
+
+    <script>
+      const dataUrl = './data/flights.json';
+      const refreshEndpoint = window.REFRESH_ENDPOINT || '';
+      const refreshToken = window.REFRESH_TOKEN || '';
+
+      const cardsEl = document.getElementById('cards');
+      const metaEl = document.getElementById('meta');
+      const refreshBtn = document.getElementById('refreshBtn');
+
+      if (!refreshEndpoint || !refreshToken) {
+        refreshBtn.disabled = true;
+        refreshBtn.title = 'Refresh endpoint/token not configured';
+      }
+
+      const fmtDay = (iso) => {
+        const d = new Date(iso + 'T00:00:00Z');
+        return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+      };
+
+      function metric(title, completed, planned) {
+        return `<div class="metric"><div class="label">${title}</div><div class="value ok">Completed: ${completed ?? 0}</div><div class="value planned">Planned: ${planned ?? 0}</div></div>`;
+      }
+
+      function render(payload) {
+        const generated = payload.generated_at ? new Date(payload.generated_at).toLocaleString() : 'not generated yet';
+        metaEl.textContent = `Airport ${payload.airport || 'TLV'} • Updated ${generated}`;
+        const days = Object.keys(payload.days || {}).sort();
+        if (!days.length) { cardsEl.innerHTML = '<div class="day-card">No data yet.</div>'; return; }
+
+        cardsEl.innerHTML = days.reverse().map(day => {
+          const arr = payload.days[day]?.arrival || {};
+          const dep = payload.days[day]?.departure || {};
+          const arrS = arr.summary || {};
+          const depS = dep.summary || {};
+          const arrErr = arrS.error ? `<div class="err">Arrival error: ${arrS.error}</div>` : '';
+          const depErr = depS.error ? `<div class="err">Departure error: ${depS.error}</div>` : '';
+          return `<section class="day-card"><div class="day-header"><div class="day">${fmtDay(day)} <span class="small">(${day})</span></div><div class="endpoint">arr: ${arr.endpoint_mode || '-'} • dep: ${dep.endpoint_mode || '-'}</div></div><div class="split">${metric('Arrivals', arrS.counts?.completed, arrS.counts?.planned)}${metric('Departures', depS.counts?.completed, depS.counts?.planned)}</div>${arrErr}${depErr}</section>`;
+        }).join('');
+      }
+
+      async function loadData() {
+        const res = await fetch(dataUrl, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`failed to load data (${res.status})`);
+        render(await res.json());
+      }
+
+      async function refreshData() {
+        if (!refreshEndpoint || !refreshToken) return;
+        refreshBtn.disabled = true;
+        refreshBtn.textContent = 'Refreshing...';
+        try {
+          const res = await fetch(refreshEndpoint, { method: 'POST' });
+          const body = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(body.error || `refresh failed (${res.status})`);
+          alert(body.message || 'Refresh triggered, wait ~1 minute then reload.');
+        } catch (e) {
+          alert(e.message);
+        } finally {
+          refreshBtn.disabled = false;
+          refreshBtn.textContent = 'Refresh now';
+        }
+      }
+
+      refreshBtn.addEventListener('click', refreshData);
+      loadData().catch(err => {
+        metaEl.textContent = 'Failed to load data';
+        cardsEl.innerHTML = `<div class="day-card err">${err.message}</div>`;
+      });
+    </script>
+  </body>
+</html>
+</script>
+  </body>
+</html>

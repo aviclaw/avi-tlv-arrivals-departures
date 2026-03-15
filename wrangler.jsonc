@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "avi-tlv-refresh-worker",
+  "main": "worker.js",
+  "compatibility_date": "2026-03-15",
+  "workers_dev": true,
+  "triggers": {
+    "crons": ["0 */4 * * *"]
+  },
+  "vars": {
+    "GH_REFRESH_URL": "https://api.github.com/repos/aviclaw/avi-tlv-arrivals-departures/actions/workflows/refresh-data.yml/dispatches",
+    "ALLOWED_ORIGIN": "https://aviclaw.github.io"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "REFRESH_KV",
+      "id": "__SET_ME__"
+    }
+  ]
+}
