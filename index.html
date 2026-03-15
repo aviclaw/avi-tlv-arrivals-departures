@@ -134,6 +134,14 @@
           <option value="asc">Oldest first</option>
         </select>
       </div>
+
+      <div class="controls" style="margin-top:10px;">
+        <label for="flightSearch" class="small" style="font-weight:700;">Filter Flight / Airline</label>
+        <input id="flightSearch" class="control" type="text" placeholder="e.g. LY827, El Al" aria-label="Filter by flight number or airline" />
+        <button id="searchBtn" class="btn" style="padding:8px 12px;">Search</button>
+      </div>
+      <div id="searchResults" class="day-card" style="display:none; margin-top:12px;"></div>
+
       <div id="cards" class="cards" role="list" aria-live="polite"></div>
     </div>
 
@@ -146,6 +154,9 @@
       const refreshBtn = document.getElementById('refreshBtn');
       const dayFilterEl = document.getElementById('dayFilter');
       const sortOrderEl = document.getElementById('sortOrder');
+      const flightSearchEl = document.getElementById('flightSearch');
+      const searchBtnEl = document.getElementById('searchBtn');
+      const searchResultsEl = document.getElementById('searchResults');
       let payloadCache = null;
       const openDays = new Set();
 
@@ -218,6 +229,24 @@
           in_progress: raw.in_progress ?? 0,
           planned: raw.planned ?? 0,
         };
+      }
+
+      function sanitizeSearchInput(value) {
+        return String(value || '')
+          .trim()
+          .slice(0, 80)
+          .replace(/[<>`"'\\;(){}]/g, ' ')
+          .replace(/\s+/g, ' ')
+          .toLowerCase();
+      }
+
+      function escapeHtml(s) {
+        return String(s)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
       }
 
       function detailsPanel(dayData) {
@@ -310,6 +339,71 @@
         });
       }
 
+      function collectSearchRows(payload) {
+        const out = [];
+        for (const [day, dayData] of Object.entries(payload?.days || {})) {
+          for (const type of ['arrival', 'departure']) {
+            const summary = dayData?.[type]?.summary || {};
+            for (const bucket of ['completed_examples', 'in_progress_examples', 'planned_examples']) {
+              for (const row of summary?.[bucket] || []) {
+                out.push({ day, type, bucket, row });
+              }
+            }
+          }
+        }
+        return out;
+      }
+
+      function runSearch() {
+        if (!payloadCache) return;
+        const qRaw = flightSearchEl.value || '';
+        const q = sanitizeSearchInput(qRaw);
+
+        if (!q) {
+          searchResultsEl.style.display = 'none';
+          searchResultsEl.innerHTML = '';
+          return;
+        }
+
+        const allRows = collectSearchRows(payloadCache);
+        const matches = allRows.filter(({ row }) => {
+          const flight = String(row?.flight || '').toLowerCase();
+          const airline = String(row?.airline || '').toLowerCase();
+          return flight.includes(q) || airline.includes(q);
+        });
+
+        const byDay = new Map();
+        for (const m of matches) {
+          if (!byDay.has(m.day)) byDay.set(m.day, []);
+          byDay.get(m.day).push(m);
+        }
+
+        if (!matches.length) {
+          searchResultsEl.style.display = 'block';
+          searchResultsEl.innerHTML = `<div class="day"><strong>NOT FOUND</strong></div><div class="small" style="margin-top:6px;">No flight or airline matched "${escapeHtml(qRaw)}"</div>`;
+          return;
+        }
+
+        const sections = Array.from(byDay.entries())
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([day, rowsForDay]) => {
+            const body = rowsForDay.map(({ type, row }) => `<tr>
+              <td>${escapeHtml(row.flight || 'n/a')}</td>
+              <td>${escapeHtml(row.airline || 'n/a')}</td>
+              <td>${escapeHtml(type)}</td>
+              <td>${escapeHtml(row.status || 'unknown')}</td>
+              <td>${escapeHtml((row.dep || '---') + ' → ' + (row.arr || '---'))}</td>
+              <td>${escapeHtml(type === 'arrival' ? (row.scheduled_arr || 'n/a') : (row.scheduled_dep || 'n/a'))}</td>
+              <td><a class="track-link" href="${flightRadarUrl(row.flight)}" target="_blank" rel="noopener noreferrer" title="Track on Flightradar24">✈️</a></td>
+            </tr>`).join('');
+            return `<h4 style="margin:10px 0 6px 0;">${escapeHtml(day)} • ${rowsForDay.length} match(es)</h4>
+              <div class="narrow"><table><thead><tr><th>Flight</th><th>Airline</th><th>Type</th><th>Status</th><th>Route</th><th>Scheduled</th><th>Track</th></tr></thead><tbody>${body}</tbody></table></div>`;
+          }).join('');
+
+        searchResultsEl.style.display = 'block';
+        searchResultsEl.innerHTML = `<div class="day"><strong>Found ${matches.length}</strong> result(s) for "${escapeHtml(qRaw)}"</div>${sections}`;
+      }
+
       async function loadData() {
         const res = await fetch(dataUrl, { cache: 'no-store' });
         if (!res.ok) throw new Error(`failed to load data (${res.status})`);
@@ -344,6 +438,13 @@
       refreshBtn.addEventListener('click', refreshData);
       dayFilterEl.addEventListener('change', () => payloadCache && render(payloadCache));
       sortOrderEl.addEventListener('change', () => payloadCache && render(payloadCache));
+      searchBtnEl.addEventListener('click', runSearch);
+      flightSearchEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          runSearch();
+        }
+      });
 
       loadData().catch(err => {
         metaEl.textContent = 'Failed to load data';

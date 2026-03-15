@@ -84,6 +84,34 @@ def test_2_refresh_endpoint_cors_and_post() -> None:
     assert '"ok":true' in pout.lower() or '"error":' in pout.lower()
 
 
+def test_3_search_filter_present_and_enter_triggered() -> None:
+    html = INDEX.read_text(encoding="utf-8")
+    assert 'id="flightSearch"' in html
+    assert 'id="searchBtn"' in html
+    assert 'function runSearch()' in html
+    assert "if (e.key === 'Enter')" in html
+
+
+def test_4_search_sanitization_guards_injection_and_boundary() -> None:
+    html = INDEX.read_text(encoding="utf-8")
+
+    # Sanitization + boundary guard exists
+    assert ".slice(0, 80)" in html
+    assert "replace(/[<>`\"'\\\\;(){}]/g, ' ')" in html
+    assert "function escapeHtml" in html
+
+    # Explicitly ensure we do not eval user input
+    forbidden = ["eval(", "new Function(", "innerHTML = q", "document.write("]
+    for token in forbidden:
+      assert token not in html
+
+
+def test_5_search_handles_not_found_flow() -> None:
+    html = INDEX.read_text(encoding="utf-8")
+    assert "NOT FOUND" in html
+    assert "No flight or airline matched" in html
+
+
 def test_no_credential_like_strings_in_tracked_text_files() -> None:
     suspicious_patterns = [
         re.compile(r"(?i)(api[_-]?key|token|secret|password)\s*[:=]\s*['\"]?[A-Za-z0-9_\-]{16,}"),
