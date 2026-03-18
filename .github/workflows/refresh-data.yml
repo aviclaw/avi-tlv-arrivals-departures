@@ -12,10 +12,14 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
 
@@ -36,13 +40,51 @@ jobs:
         run: python scripts/fetch_flights.py
 
       - name: Commit refreshed data
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/flights.json
           if git diff --staged --quiet; then
             echo "No data change"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "chore: refresh flights data"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  deploy_pages:
+    name: Deploy refreshed data to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp index.html _site/index.html
+          cp favicon.svg _site/favicon.svg
+          cp -r data _site/data
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
