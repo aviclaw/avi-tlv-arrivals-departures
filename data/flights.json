@@ -1,6 +1,6 @@
 {
   "airport": "TLV",
-  "generated_at": "2026-03-30T06:00:02Z",
+  "generated_at": "2026-03-30T08:00:18Z",
   "days": {
     "2026-03-24": {
       "arrival": {
@@ -1791,30 +1791,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 53,
+          "total": 61,
           "counts": {
-            "completed": 10,
+            "completed": 11,
             "in_progress": 0,
-            "planned": 43
+            "planned": 50
           },
           "status_counts": {
-            "scheduled": 20,
-            "unknown": 14,
-            "landed": 10,
-            "active": 9
+            "scheduled": 30,
+            "unknown": 12,
+            "landed": 11,
+            "active": 8
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY840",
-              "status": "landed",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 01:00:00.000",
-              "actual_dep": "2026-03-30 01:21:00.000",
-              "scheduled_arr": "2026-03-30 02:55:00.000",
-              "actual_arr": "2026-03-30 02:48:00.000"
-            },
             {
               "airline": "El Al",
               "flight": "LY1626",
@@ -1913,54 +1902,21 @@
               "actual_dep": "2026-03-30 03:10:00.000",
               "scheduled_arr": "2026-03-30 08:00:00.000",
               "actual_arr": "2026-03-30 07:57:00.000"
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H954",
+              "status": "landed",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-30 06:55:00.000",
+              "actual_dep": "2026-03-30 07:09:00.000",
+              "scheduled_arr": "2026-03-30 08:38:00.000",
+              "actual_arr": "2026-03-30 08:48:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1306",
-              "status": "active",
-              "dep": "LAX",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-29 02:10:00.000",
-              "actual_dep": "2026-03-29 02:21:00.000",
-              "scheduled_arr": "2026-03-30 01:09:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY852",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-29 23:40:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 01:35:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "C.A.L. Cargo Airlines",
-              "flight": "5C772",
-              "status": "unknown",
-              "dep": "GYD",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 00:35:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 02:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY646",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 00:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 02:30:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY530",
@@ -2026,6 +1982,50 @@
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 04:30:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ744",
+              "status": "unknown",
+              "dep": "CDG",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 23:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:45:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ1216",
+              "status": "unknown",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-30 02:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:45:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY64",
+              "status": "unknown",
+              "dep": "BKK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 20:40:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:55:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Silk Way West",
+              "flight": "7L8116",
+              "status": "unknown",
+              "dep": "JFK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 05:20:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -2034,30 +2034,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 54,
+          "total": 65,
           "counts": {
-            "completed": 6,
-            "in_progress": 13,
-            "planned": 35
+            "completed": 9,
+            "in_progress": 9,
+            "planned": 47
           },
           "status_counts": {
-            "scheduled": 22,
-            "active": 19,
-            "unknown": 11,
+            "scheduled": 29,
+            "active": 18,
+            "unknown": 16,
             "cancelled": 2
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1625",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "EWR",
-              "scheduled_dep": "2026-03-30 02:00:00.000",
-              "actual_dep": "2026-03-30 02:29:00.000",
-              "scheduled_arr": "2026-03-30 06:45:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY855",
@@ -2112,6 +2101,50 @@
               "actual_dep": "2026-03-30 08:34:00.000",
               "scheduled_arr": "2026-03-30 12:15:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY647",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "actual_dep": "2026-03-30 09:21:00.000",
+              "scheduled_arr": "2026-03-30 11:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "empty",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "actual_dep": "2026-03-30 09:16:00.000",
+              "scheduled_arr": "2026-03-30 10:14:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "G.A.D Flights",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:00:00.000",
+              "actual_dep": "2026-03-30 10:22:00.000",
+              "scheduled_arr": "2026-03-30 12:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H977",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-03-30 10:00:00.000",
+              "actual_dep": "2026-03-30 09:53:00.000",
+              "scheduled_arr": "2026-03-30 11:07:00.000",
+              "actual_arr": "2026-03-30 10:49:00.000"
             }
           ],
           "in_progress_examples": [
@@ -2171,73 +2204,51 @@
               "actual_arr": null
             },
             {
-              "airline": "MSC Air",
-              "flight": "CP3595",
+              "airline": "El Al",
+              "flight": "LY861",
               "status": "active",
               "dep": "TLV",
-              "arr": "EHU",
-              "scheduled_dep": "2026-03-30 08:15:00.000",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:10:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-03-30 23:25:00.000",
+              "scheduled_arr": "2026-03-30 12:20:00.000",
               "actual_arr": null
             },
             {
               "airline": "Tus Airways",
-              "flight": "U8103",
+              "flight": "U8107",
               "status": "active",
               "dep": "TLV",
               "arr": "LCA",
-              "scheduled_dep": "2026-03-30 08:55:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 10:00:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ513",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "AMS",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 13:05:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8152",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "PFO",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 10:05:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8356",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "NAP",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "scheduled_dep": "2026-03-30 10:15:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 11:20:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY847",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:35:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 12:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7621",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LGG",
+              "scheduled_dep": "2026-03-30 11:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 14:44:00.000",
               "actual_arr": null
             }
           ],
           "planned_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1305",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LAX",
-              "scheduled_dep": "2026-03-30 01:35:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 06:50:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY851",
@@ -2335,6 +2346,17 @@
               "scheduled_dep": "2026-03-30 06:30:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 09:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY587",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-03-30 06:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 09:35:00.000",
               "actual_arr": null
             }
           ]
@@ -2346,30 +2368,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 53,
+          "total": 61,
           "counts": {
-            "completed": 10,
+            "completed": 11,
             "in_progress": 0,
-            "planned": 43
+            "planned": 50
           },
           "status_counts": {
-            "scheduled": 20,
-            "unknown": 14,
-            "landed": 10,
-            "active": 9
+            "scheduled": 30,
+            "unknown": 12,
+            "landed": 11,
+            "active": 8
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY840",
-              "status": "landed",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 01:00:00.000",
-              "actual_dep": "2026-03-30 01:21:00.000",
-              "scheduled_arr": "2026-03-30 02:55:00.000",
-              "actual_arr": "2026-03-30 02:48:00.000"
-            },
             {
               "airline": "El Al",
               "flight": "LY1626",
@@ -2468,54 +2479,21 @@
               "actual_dep": "2026-03-30 03:10:00.000",
               "scheduled_arr": "2026-03-30 08:00:00.000",
               "actual_arr": "2026-03-30 07:57:00.000"
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H954",
+              "status": "landed",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-30 06:55:00.000",
+              "actual_dep": "2026-03-30 07:09:00.000",
+              "scheduled_arr": "2026-03-30 08:38:00.000",
+              "actual_arr": "2026-03-30 08:48:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1306",
-              "status": "active",
-              "dep": "LAX",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-29 02:10:00.000",
-              "actual_dep": "2026-03-29 02:21:00.000",
-              "scheduled_arr": "2026-03-30 01:09:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY852",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-29 23:40:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 01:35:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "C.A.L. Cargo Airlines",
-              "flight": "5C772",
-              "status": "unknown",
-              "dep": "GYD",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 00:35:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 02:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY646",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 00:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 02:30:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY530",
@@ -2581,6 +2559,50 @@
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 04:30:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ744",
+              "status": "unknown",
+              "dep": "CDG",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 23:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:45:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ1216",
+              "status": "unknown",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-30 02:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:45:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY64",
+              "status": "unknown",
+              "dep": "BKK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 20:40:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:55:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Silk Way West",
+              "flight": "7L8116",
+              "status": "unknown",
+              "dep": "JFK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 05:20:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -2589,30 +2611,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 54,
+          "total": 65,
           "counts": {
-            "completed": 6,
-            "in_progress": 13,
-            "planned": 35
+            "completed": 9,
+            "in_progress": 9,
+            "planned": 47
           },
           "status_counts": {
-            "scheduled": 22,
-            "active": 19,
-            "unknown": 11,
+            "scheduled": 29,
+            "active": 18,
+            "unknown": 16,
             "cancelled": 2
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1625",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "EWR",
-              "scheduled_dep": "2026-03-30 02:00:00.000",
-              "actual_dep": "2026-03-30 02:29:00.000",
-              "scheduled_arr": "2026-03-30 06:45:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY855",
@@ -2667,6 +2678,50 @@
               "actual_dep": "2026-03-30 08:34:00.000",
               "scheduled_arr": "2026-03-30 12:15:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY647",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "actual_dep": "2026-03-30 09:21:00.000",
+              "scheduled_arr": "2026-03-30 11:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "empty",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "actual_dep": "2026-03-30 09:16:00.000",
+              "scheduled_arr": "2026-03-30 10:14:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "G.A.D Flights",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:00:00.000",
+              "actual_dep": "2026-03-30 10:22:00.000",
+              "scheduled_arr": "2026-03-30 12:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H977",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-03-30 10:00:00.000",
+              "actual_dep": "2026-03-30 09:53:00.000",
+              "scheduled_arr": "2026-03-30 11:07:00.000",
+              "actual_arr": "2026-03-30 10:49:00.000"
             }
           ],
           "in_progress_examples": [
@@ -2726,73 +2781,51 @@
               "actual_arr": null
             },
             {
-              "airline": "MSC Air",
-              "flight": "CP3595",
+              "airline": "El Al",
+              "flight": "LY861",
               "status": "active",
               "dep": "TLV",
-              "arr": "EHU",
-              "scheduled_dep": "2026-03-30 08:15:00.000",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:10:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-03-30 23:25:00.000",
+              "scheduled_arr": "2026-03-30 12:20:00.000",
               "actual_arr": null
             },
             {
               "airline": "Tus Airways",
-              "flight": "U8103",
+              "flight": "U8107",
               "status": "active",
               "dep": "TLV",
               "arr": "LCA",
-              "scheduled_dep": "2026-03-30 08:55:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 10:00:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ513",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "AMS",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 13:05:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8152",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "PFO",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 10:05:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8356",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "NAP",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "scheduled_dep": "2026-03-30 10:15:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 11:20:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY847",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:35:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 12:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7621",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LGG",
+              "scheduled_dep": "2026-03-30 11:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 14:44:00.000",
               "actual_arr": null
             }
           ],
           "planned_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1305",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LAX",
-              "scheduled_dep": "2026-03-30 01:35:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 06:50:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY851",
@@ -2890,6 +2923,17 @@
               "scheduled_dep": "2026-03-30 06:30:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 09:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY587",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-03-30 06:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 09:35:00.000",
               "actual_arr": null
             }
           ]
@@ -2901,30 +2945,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 53,
+          "total": 61,
           "counts": {
-            "completed": 10,
+            "completed": 11,
             "in_progress": 0,
-            "planned": 43
+            "planned": 50
           },
           "status_counts": {
-            "scheduled": 20,
-            "unknown": 14,
-            "landed": 10,
-            "active": 9
+            "scheduled": 30,
+            "unknown": 12,
+            "landed": 11,
+            "active": 8
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY840",
-              "status": "landed",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 01:00:00.000",
-              "actual_dep": "2026-03-30 01:21:00.000",
-              "scheduled_arr": "2026-03-30 02:55:00.000",
-              "actual_arr": "2026-03-30 02:48:00.000"
-            },
             {
               "airline": "El Al",
               "flight": "LY1626",
@@ -3023,54 +3056,21 @@
               "actual_dep": "2026-03-30 03:10:00.000",
               "scheduled_arr": "2026-03-30 08:00:00.000",
               "actual_arr": "2026-03-30 07:57:00.000"
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H954",
+              "status": "landed",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-30 06:55:00.000",
+              "actual_dep": "2026-03-30 07:09:00.000",
+              "scheduled_arr": "2026-03-30 08:38:00.000",
+              "actual_arr": "2026-03-30 08:48:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1306",
-              "status": "active",
-              "dep": "LAX",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-29 02:10:00.000",
-              "actual_dep": "2026-03-29 02:21:00.000",
-              "scheduled_arr": "2026-03-30 01:09:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY852",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-29 23:40:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 01:35:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "C.A.L. Cargo Airlines",
-              "flight": "5C772",
-              "status": "unknown",
-              "dep": "GYD",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 00:35:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 02:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY646",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-03-30 00:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 02:30:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY530",
@@ -3136,6 +3136,50 @@
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 04:30:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ744",
+              "status": "unknown",
+              "dep": "CDG",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 23:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:45:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ1216",
+              "status": "unknown",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-30 02:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:45:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY64",
+              "status": "unknown",
+              "dep": "BKK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 20:40:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 04:55:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Silk Way West",
+              "flight": "7L8116",
+              "status": "unknown",
+              "dep": "JFK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-03-29 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 05:20:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -3144,30 +3188,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 54,
+          "total": 65,
           "counts": {
-            "completed": 6,
-            "in_progress": 13,
-            "planned": 35
+            "completed": 9,
+            "in_progress": 9,
+            "planned": 47
           },
           "status_counts": {
-            "scheduled": 22,
-            "active": 19,
-            "unknown": 11,
+            "scheduled": 29,
+            "active": 18,
+            "unknown": 16,
             "cancelled": 2
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1625",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "EWR",
-              "scheduled_dep": "2026-03-30 02:00:00.000",
-              "actual_dep": "2026-03-30 02:29:00.000",
-              "scheduled_arr": "2026-03-30 06:45:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY855",
@@ -3222,6 +3255,50 @@
               "actual_dep": "2026-03-30 08:34:00.000",
               "scheduled_arr": "2026-03-30 12:15:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY647",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "actual_dep": "2026-03-30 09:21:00.000",
+              "scheduled_arr": "2026-03-30 11:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "empty",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "actual_dep": "2026-03-30 09:16:00.000",
+              "scheduled_arr": "2026-03-30 10:14:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "G.A.D Flights",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:00:00.000",
+              "actual_dep": "2026-03-30 10:22:00.000",
+              "scheduled_arr": "2026-03-30 12:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H977",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-03-30 10:00:00.000",
+              "actual_dep": "2026-03-30 09:53:00.000",
+              "scheduled_arr": "2026-03-30 11:07:00.000",
+              "actual_arr": "2026-03-30 10:49:00.000"
             }
           ],
           "in_progress_examples": [
@@ -3281,73 +3358,51 @@
               "actual_arr": null
             },
             {
-              "airline": "MSC Air",
-              "flight": "CP3595",
+              "airline": "El Al",
+              "flight": "LY861",
               "status": "active",
               "dep": "TLV",
-              "arr": "EHU",
-              "scheduled_dep": "2026-03-30 08:15:00.000",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:10:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-03-30 23:25:00.000",
+              "scheduled_arr": "2026-03-30 12:20:00.000",
               "actual_arr": null
             },
             {
               "airline": "Tus Airways",
-              "flight": "U8103",
+              "flight": "U8107",
               "status": "active",
               "dep": "TLV",
               "arr": "LCA",
-              "scheduled_dep": "2026-03-30 08:55:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 10:00:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ513",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "AMS",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 13:05:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8152",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "PFO",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 10:05:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8356",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "NAP",
-              "scheduled_dep": "2026-03-30 09:00:00.000",
+              "scheduled_dep": "2026-03-30 10:15:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 11:20:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY847",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-03-30 10:35:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 12:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7621",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LGG",
+              "scheduled_dep": "2026-03-30 11:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 14:44:00.000",
               "actual_arr": null
             }
           ],
           "planned_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1305",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LAX",
-              "scheduled_dep": "2026-03-30 01:35:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-03-30 06:50:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY851",
@@ -3445,6 +3500,17 @@
               "scheduled_dep": "2026-03-30 06:30:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-03-30 09:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY587",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-03-30 06:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-03-30 09:35:00.000",
               "actual_arr": null
             }
           ]
