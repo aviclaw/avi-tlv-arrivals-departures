@@ -1,6 +1,6 @@
 {
   "airport": "TLV",
-  "generated_at": "2026-04-04T13:01:46Z",
+  "generated_at": "2026-04-04T16:00:27Z",
   "days": {
     "2026-03-29": {
       "arrival": {
@@ -2392,41 +2392,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 35,
+          "total": 39,
           "counts": {
             "completed": 8,
             "in_progress": 0,
-            "planned": 27
+            "planned": 31
           },
           "status_counts": {
             "scheduled": 18,
+            "unknown": 10,
             "landed": 8,
-            "unknown": 6,
             "active": 3
           },
           "completed_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H954",
-              "status": "landed",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 06:00:00.000",
-              "actual_dep": "2026-04-04 06:11:00.000",
-              "scheduled_arr": "2026-04-04 08:00:00.000",
-              "actual_arr": "2026-04-04 07:41:00.000"
-            },
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7604",
-              "status": "landed",
-              "dep": "LGG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 03:50:00.000",
-              "actual_dep": "2026-04-04 05:02:00.000",
-              "scheduled_arr": "2026-04-04 09:40:00.000",
-              "actual_arr": "2026-04-04 09:46:00.000"
-            },
             {
               "airline": "airHaifa",
               "flight": "E2102",
@@ -2492,43 +2470,32 @@
               "actual_dep": "2026-04-04 13:54:00.000",
               "scheduled_arr": "2026-04-04 15:40:00.000",
               "actual_arr": "2026-04-04 15:20:00.000"
+            },
+            {
+              "airline": "Arrow Aviation",
+              "flight": "",
+              "status": "landed",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 15:10:00.000",
+              "actual_dep": "2026-04-04 15:20:00.000",
+              "scheduled_arr": "2026-04-04 16:54:00.000",
+              "actual_arr": "2026-04-04 16:53:00.000"
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H332",
+              "status": "landed",
+              "dep": "FCO",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 13:30:00.000",
+              "actual_dep": "2026-04-04 12:35:00.000",
+              "scheduled_arr": "2026-04-04 17:50:00.000",
+              "actual_arr": "2026-04-04 16:21:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ166",
-              "status": "unknown",
-              "dep": "LCA",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 09:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "C.A.L. Cargo Airlines",
-              "flight": "5C608",
-              "status": "unknown",
-              "dep": "LGG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 06:05:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 10:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H894",
-              "status": "scheduled",
-              "dep": "TBS",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 09:15:00.000",
-              "actual_dep": "2026-04-04 10:52:00.000",
-              "scheduled_arr": "2026-04-04 10:55:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Israir Airlines",
               "flight": "6H962",
@@ -2598,12 +2565,45 @@
             {
               "airline": "Tus Airways",
               "flight": "U8106",
-              "status": "scheduled",
+              "status": "unknown",
               "dep": "LCA",
               "arr": "TLV",
               "scheduled_dep": "2026-04-04 15:35:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-04 16:35:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H714",
+              "status": "unknown",
+              "dep": "BUD",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 16:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C852",
+              "status": "unknown",
+              "dep": "ALA",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 11:51:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 17:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C902",
+              "status": "unknown",
+              "dep": "OSL",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 11:45:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 17:10:00.000",
               "actual_arr": null
             }
           ]
@@ -2613,62 +2613,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 37,
+          "total": 35,
           "counts": {
-            "completed": 9,
+            "completed": 7,
             "in_progress": 9,
             "planned": 19
           },
           "status_counts": {
-            "active": 18,
-            "scheduled": 10,
-            "unknown": 9
+            "active": 16,
+            "scheduled": 11,
+            "unknown": 8
           },
           "completed_examples": [
-            {
-              "airline": "Arrow Aviation",
-              "flight": "",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 08:00:00.000",
-              "actual_dep": "2026-04-04 08:08:00.000",
-              "scheduled_arr": "2026-04-04 10:11:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ1211",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": "2026-04-04 08:40:00.000",
-              "scheduled_arr": "2026-04-04 10:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "empty",
-              "flight": "",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GVA",
-              "scheduled_dep": "2026-04-04 08:45:00.000",
-              "actual_dep": "2026-04-04 09:08:00.000",
-              "scheduled_arr": "2026-04-04 11:52:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ213",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 10:30:00.000",
-              "actual_dep": "2026-04-04 10:34:00.000",
-              "scheduled_arr": "2026-04-04 12:40:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Arrow Aviation",
               "flight": "",
@@ -2723,20 +2679,31 @@
               "actual_dep": "2026-04-04 15:32:00.000",
               "scheduled_arr": "2026-04-04 17:05:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ3215",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-04-04 16:55:00.000",
+              "actual_dep": "2026-04-04 16:49:00.000",
+              "scheduled_arr": "2026-04-04 19:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H971",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 17:40:00.000",
+              "actual_dep": "2026-04-04 17:33:00.000",
+              "scheduled_arr": "2026-04-04 18:45:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H713",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-04 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 11:30:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Arkia Israeli Airlines",
               "flight": "IZ109",
@@ -2793,17 +2760,6 @@
               "actual_arr": null
             },
             {
-              "airline": "Tus Airways",
-              "flight": "U8132",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "FCO",
-              "scheduled_dep": "2026-04-04 15:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 18:15:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "airHaifa",
               "flight": "E2105",
               "status": "active",
@@ -2824,42 +2780,31 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-04 19:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H973",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 18:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 19:55:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ1169",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 19:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 20:00:00.000",
+              "actual_arr": null
             }
           ],
           "planned_examples": [
-            {
-              "airline": "Silk Way West",
-              "flight": "7L217",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 13:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8103",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-04 09:25:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 10:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8464",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "PRG",
-              "scheduled_dep": "2026-04-04 10:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 13:00:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "airHaifa",
               "flight": "E2211",
@@ -2927,14 +2872,47 @@
               "actual_arr": null
             },
             {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ3215",
+              "airline": "Tus Airways",
+              "flight": "U8132",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-04-04 15:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 18:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Tus Airways",
+              "flight": "U8156",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "PFO",
+              "scheduled_dep": "2026-04-04 17:35:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 18:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H991",
               "status": "scheduled",
               "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 16:55:00.000",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 20:00:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-04 19:05:00.000",
+              "scheduled_arr": "2026-04-04 21:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H47",
+              "status": "scheduled",
+              "dep": "TLV",
+              "arr": "ETM",
+              "scheduled_dep": "2026-04-04 20:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 21:30:00.000",
               "actual_arr": null
             }
           ]
@@ -2946,41 +2924,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 35,
+          "total": 39,
           "counts": {
             "completed": 8,
             "in_progress": 0,
-            "planned": 27
+            "planned": 31
           },
           "status_counts": {
             "scheduled": 18,
+            "unknown": 10,
             "landed": 8,
-            "unknown": 6,
             "active": 3
           },
           "completed_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H954",
-              "status": "landed",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 06:00:00.000",
-              "actual_dep": "2026-04-04 06:11:00.000",
-              "scheduled_arr": "2026-04-04 08:00:00.000",
-              "actual_arr": "2026-04-04 07:41:00.000"
-            },
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7604",
-              "status": "landed",
-              "dep": "LGG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 03:50:00.000",
-              "actual_dep": "2026-04-04 05:02:00.000",
-              "scheduled_arr": "2026-04-04 09:40:00.000",
-              "actual_arr": "2026-04-04 09:46:00.000"
-            },
             {
               "airline": "airHaifa",
               "flight": "E2102",
@@ -3046,43 +3002,32 @@
               "actual_dep": "2026-04-04 13:54:00.000",
               "scheduled_arr": "2026-04-04 15:40:00.000",
               "actual_arr": "2026-04-04 15:20:00.000"
+            },
+            {
+              "airline": "Arrow Aviation",
+              "flight": "",
+              "status": "landed",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 15:10:00.000",
+              "actual_dep": "2026-04-04 15:20:00.000",
+              "scheduled_arr": "2026-04-04 16:54:00.000",
+              "actual_arr": "2026-04-04 16:53:00.000"
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H332",
+              "status": "landed",
+              "dep": "FCO",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 13:30:00.000",
+              "actual_dep": "2026-04-04 12:35:00.000",
+              "scheduled_arr": "2026-04-04 17:50:00.000",
+              "actual_arr": "2026-04-04 16:21:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ166",
-              "status": "unknown",
-              "dep": "LCA",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 09:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "C.A.L. Cargo Airlines",
-              "flight": "5C608",
-              "status": "unknown",
-              "dep": "LGG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 06:05:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 10:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H894",
-              "status": "scheduled",
-              "dep": "TBS",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 09:15:00.000",
-              "actual_dep": "2026-04-04 10:52:00.000",
-              "scheduled_arr": "2026-04-04 10:55:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Israir Airlines",
               "flight": "6H962",
@@ -3152,12 +3097,45 @@
             {
               "airline": "Tus Airways",
               "flight": "U8106",
-              "status": "scheduled",
+              "status": "unknown",
               "dep": "LCA",
               "arr": "TLV",
               "scheduled_dep": "2026-04-04 15:35:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-04 16:35:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H714",
+              "status": "unknown",
+              "dep": "BUD",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 16:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C852",
+              "status": "unknown",
+              "dep": "ALA",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 11:51:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 17:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C902",
+              "status": "unknown",
+              "dep": "OSL",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 11:45:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 17:10:00.000",
               "actual_arr": null
             }
           ]
@@ -3167,62 +3145,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 37,
+          "total": 35,
           "counts": {
-            "completed": 9,
+            "completed": 7,
             "in_progress": 9,
             "planned": 19
           },
           "status_counts": {
-            "active": 18,
-            "scheduled": 10,
-            "unknown": 9
+            "active": 16,
+            "scheduled": 11,
+            "unknown": 8
           },
           "completed_examples": [
-            {
-              "airline": "Arrow Aviation",
-              "flight": "",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 08:00:00.000",
-              "actual_dep": "2026-04-04 08:08:00.000",
-              "scheduled_arr": "2026-04-04 10:11:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ1211",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": "2026-04-04 08:40:00.000",
-              "scheduled_arr": "2026-04-04 10:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "empty",
-              "flight": "",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GVA",
-              "scheduled_dep": "2026-04-04 08:45:00.000",
-              "actual_dep": "2026-04-04 09:08:00.000",
-              "scheduled_arr": "2026-04-04 11:52:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ213",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 10:30:00.000",
-              "actual_dep": "2026-04-04 10:34:00.000",
-              "scheduled_arr": "2026-04-04 12:40:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Arrow Aviation",
               "flight": "",
@@ -3277,20 +3211,31 @@
               "actual_dep": "2026-04-04 15:32:00.000",
               "scheduled_arr": "2026-04-04 17:05:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ3215",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-04-04 16:55:00.000",
+              "actual_dep": "2026-04-04 16:49:00.000",
+              "scheduled_arr": "2026-04-04 19:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H971",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 17:40:00.000",
+              "actual_dep": "2026-04-04 17:33:00.000",
+              "scheduled_arr": "2026-04-04 18:45:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H713",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-04 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 11:30:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Arkia Israeli Airlines",
               "flight": "IZ109",
@@ -3347,17 +3292,6 @@
               "actual_arr": null
             },
             {
-              "airline": "Tus Airways",
-              "flight": "U8132",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "FCO",
-              "scheduled_dep": "2026-04-04 15:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 18:15:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "airHaifa",
               "flight": "E2105",
               "status": "active",
@@ -3378,42 +3312,31 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-04 19:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H973",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 18:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 19:55:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ1169",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 19:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 20:00:00.000",
+              "actual_arr": null
             }
           ],
           "planned_examples": [
-            {
-              "airline": "Silk Way West",
-              "flight": "7L217",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 13:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8103",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-04 09:25:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 10:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8464",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "PRG",
-              "scheduled_dep": "2026-04-04 10:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 13:00:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "airHaifa",
               "flight": "E2211",
@@ -3481,14 +3404,47 @@
               "actual_arr": null
             },
             {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ3215",
+              "airline": "Tus Airways",
+              "flight": "U8132",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-04-04 15:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 18:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Tus Airways",
+              "flight": "U8156",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "PFO",
+              "scheduled_dep": "2026-04-04 17:35:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 18:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H991",
               "status": "scheduled",
               "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 16:55:00.000",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 20:00:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-04 19:05:00.000",
+              "scheduled_arr": "2026-04-04 21:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H47",
+              "status": "scheduled",
+              "dep": "TLV",
+              "arr": "ETM",
+              "scheduled_dep": "2026-04-04 20:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 21:30:00.000",
               "actual_arr": null
             }
           ]
@@ -3500,41 +3456,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 35,
+          "total": 39,
           "counts": {
             "completed": 8,
             "in_progress": 0,
-            "planned": 27
+            "planned": 31
           },
           "status_counts": {
             "scheduled": 18,
+            "unknown": 10,
             "landed": 8,
-            "unknown": 6,
             "active": 3
           },
           "completed_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H954",
-              "status": "landed",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 06:00:00.000",
-              "actual_dep": "2026-04-04 06:11:00.000",
-              "scheduled_arr": "2026-04-04 08:00:00.000",
-              "actual_arr": "2026-04-04 07:41:00.000"
-            },
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7604",
-              "status": "landed",
-              "dep": "LGG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 03:50:00.000",
-              "actual_dep": "2026-04-04 05:02:00.000",
-              "scheduled_arr": "2026-04-04 09:40:00.000",
-              "actual_arr": "2026-04-04 09:46:00.000"
-            },
             {
               "airline": "airHaifa",
               "flight": "E2102",
@@ -3600,43 +3534,32 @@
               "actual_dep": "2026-04-04 13:54:00.000",
               "scheduled_arr": "2026-04-04 15:40:00.000",
               "actual_arr": "2026-04-04 15:20:00.000"
+            },
+            {
+              "airline": "Arrow Aviation",
+              "flight": "",
+              "status": "landed",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 15:10:00.000",
+              "actual_dep": "2026-04-04 15:20:00.000",
+              "scheduled_arr": "2026-04-04 16:54:00.000",
+              "actual_arr": "2026-04-04 16:53:00.000"
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H332",
+              "status": "landed",
+              "dep": "FCO",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 13:30:00.000",
+              "actual_dep": "2026-04-04 12:35:00.000",
+              "scheduled_arr": "2026-04-04 17:50:00.000",
+              "actual_arr": "2026-04-04 16:21:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ166",
-              "status": "unknown",
-              "dep": "LCA",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 09:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "C.A.L. Cargo Airlines",
-              "flight": "5C608",
-              "status": "unknown",
-              "dep": "LGG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 06:05:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 10:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H894",
-              "status": "scheduled",
-              "dep": "TBS",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-04 09:15:00.000",
-              "actual_dep": "2026-04-04 10:52:00.000",
-              "scheduled_arr": "2026-04-04 10:55:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Israir Airlines",
               "flight": "6H962",
@@ -3706,12 +3629,45 @@
             {
               "airline": "Tus Airways",
               "flight": "U8106",
-              "status": "scheduled",
+              "status": "unknown",
               "dep": "LCA",
               "arr": "TLV",
               "scheduled_dep": "2026-04-04 15:35:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-04 16:35:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H714",
+              "status": "unknown",
+              "dep": "BUD",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 16:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C852",
+              "status": "unknown",
+              "dep": "ALA",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 11:51:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 17:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C902",
+              "status": "unknown",
+              "dep": "OSL",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-04 11:45:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 17:10:00.000",
               "actual_arr": null
             }
           ]
@@ -3721,62 +3677,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 37,
+          "total": 35,
           "counts": {
-            "completed": 9,
+            "completed": 7,
             "in_progress": 9,
             "planned": 19
           },
           "status_counts": {
-            "active": 18,
-            "scheduled": 10,
-            "unknown": 9
+            "active": 16,
+            "scheduled": 11,
+            "unknown": 8
           },
           "completed_examples": [
-            {
-              "airline": "Arrow Aviation",
-              "flight": "",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 08:00:00.000",
-              "actual_dep": "2026-04-04 08:08:00.000",
-              "scheduled_arr": "2026-04-04 10:11:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ1211",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": "2026-04-04 08:40:00.000",
-              "scheduled_arr": "2026-04-04 10:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "empty",
-              "flight": "",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GVA",
-              "scheduled_dep": "2026-04-04 08:45:00.000",
-              "actual_dep": "2026-04-04 09:08:00.000",
-              "scheduled_arr": "2026-04-04 11:52:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ213",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 10:30:00.000",
-              "actual_dep": "2026-04-04 10:34:00.000",
-              "scheduled_arr": "2026-04-04 12:40:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Arrow Aviation",
               "flight": "",
@@ -3831,20 +3743,31 @@
               "actual_dep": "2026-04-04 15:32:00.000",
               "scheduled_arr": "2026-04-04 17:05:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ3215",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-04-04 16:55:00.000",
+              "actual_dep": "2026-04-04 16:49:00.000",
+              "scheduled_arr": "2026-04-04 19:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H971",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 17:40:00.000",
+              "actual_dep": "2026-04-04 17:33:00.000",
+              "scheduled_arr": "2026-04-04 18:45:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H713",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-04 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 11:30:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Arkia Israeli Airlines",
               "flight": "IZ109",
@@ -3901,17 +3824,6 @@
               "actual_arr": null
             },
             {
-              "airline": "Tus Airways",
-              "flight": "U8132",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "FCO",
-              "scheduled_dep": "2026-04-04 15:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 18:15:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "airHaifa",
               "flight": "E2105",
               "status": "active",
@@ -3932,42 +3844,31 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-04 19:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H973",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 18:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 19:55:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Arkia Israeli Airlines",
+              "flight": "IZ1169",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 19:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 20:00:00.000",
+              "actual_arr": null
             }
           ],
           "planned_examples": [
-            {
-              "airline": "Silk Way West",
-              "flight": "7L217",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-04 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 13:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8103",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-04 09:25:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 10:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8464",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "PRG",
-              "scheduled_dep": "2026-04-04 10:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-04 13:00:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "airHaifa",
               "flight": "E2211",
@@ -4035,14 +3936,47 @@
               "actual_arr": null
             },
             {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ3215",
+              "airline": "Tus Airways",
+              "flight": "U8132",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-04-04 15:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 18:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Tus Airways",
+              "flight": "U8156",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "PFO",
+              "scheduled_dep": "2026-04-04 17:35:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 18:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H991",
               "status": "scheduled",
               "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-04 16:55:00.000",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-04 20:00:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-04 19:05:00.000",
+              "scheduled_arr": "2026-04-04 21:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H47",
+              "status": "scheduled",
+              "dep": "TLV",
+              "arr": "ETM",
+              "scheduled_dep": "2026-04-04 20:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-04 21:30:00.000",
               "actual_arr": null
             }
           ]
