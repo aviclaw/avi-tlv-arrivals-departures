@@ -1,6 +1,6 @@
 {
   "airport": "TLV",
-  "generated_at": "2026-04-08T02:41:01Z",
+  "generated_at": "2026-04-08T04:00:49Z",
   "days": {
     "2026-04-02": {
       "arrival": {
@@ -1808,29 +1808,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 28,
+          "total": 27,
           "counts": {
-            "completed": 4,
+            "completed": 3,
             "in_progress": 0,
             "planned": 24
           },
           "status_counts": {
-            "scheduled": 15,
-            "unknown": 9,
-            "landed": 4
+            "scheduled": 14,
+            "unknown": 8,
+            "landed": 3,
+            "active": 2
           },
           "completed_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H990",
-              "status": "landed",
-              "dep": "LCA",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 20:55:00.000",
-              "actual_dep": "2026-04-07 21:08:00.000",
-              "scheduled_arr": "2026-04-07 22:00:00.000",
-              "actual_arr": "2026-04-07 21:54:00.000"
-            },
             {
               "airline": "airHaifa",
               "flight": "E2108",
@@ -1867,39 +1857,6 @@
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Tus Airways",
-              "flight": "U8457",
-              "status": "unknown",
-              "dep": "BLQ",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 17:50:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:20:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "FlyOne Romania",
-              "flight": "OE7809",
-              "status": "unknown",
-              "dep": "OTP",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 19:40:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8131",
-              "status": "unknown",
-              "dep": "FCO",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 18:25:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:50:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "empty",
               "flight": "",
@@ -1976,6 +1933,39 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 04:10:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C652",
+              "status": "unknown",
+              "dep": "ALA",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-08 02:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 04:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H964",
+              "status": "unknown",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-08 02:30:00.000",
+              "actual_dep": "2026-04-08 02:36:00.000",
+              "scheduled_arr": "2026-04-08 04:30:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C982",
+              "status": "unknown",
+              "dep": "JFK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-07 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 05:10:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -1984,15 +1974,15 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 27,
+          "total": 31,
           "counts": {
-            "completed": 5,
-            "in_progress": 7,
-            "planned": 15
+            "completed": 7,
+            "in_progress": 4,
+            "planned": 20
           },
           "status_counts": {
-            "active": 12,
-            "scheduled": 12,
+            "scheduled": 17,
+            "active": 11,
             "unknown": 3
           },
           "completed_examples": [
@@ -2050,6 +2040,28 @@
               "actual_dep": "2026-04-08 04:29:00.000",
               "scheduled_arr": "2026-04-08 05:05:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H715",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "BUD",
+              "scheduled_dep": "2026-04-08 05:30:00.000",
+              "actual_dep": "2026-04-08 05:40:00.000",
+              "scheduled_arr": "2026-04-08 08:00:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7211",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "CGN",
+              "scheduled_dep": "2026-04-08 05:30:00.000",
+              "actual_dep": "2026-04-08 05:46:00.000",
+              "scheduled_arr": "2026-04-08 09:25:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
@@ -2062,39 +2074,6 @@
               "scheduled_dep": "2026-04-08 00:55:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 01:57:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Silk Way West",
-              "flight": "7L219",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-08 05:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 10:10:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H715",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-08 05:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 08:00:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Challenge Air Cargo",
-              "flight": "X6211",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "CGN",
-              "scheduled_dep": "2026-04-08 05:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 09:25:00.000",
               "actual_arr": null
             },
             {
@@ -2133,17 +2112,6 @@
           ],
           "planned_examples": [
             {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ1165",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-07 22:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 23:00:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "FlyOne Romania",
               "flight": "OE7810",
               "status": "unknown",
@@ -2163,6 +2131,17 @@
               "scheduled_dep": "2026-04-08 04:20:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 06:30:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Silk Way West",
+              "flight": "7L219",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "GYD",
+              "scheduled_dep": "2026-04-08 05:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 10:10:00.000",
               "actual_arr": null
             },
             {
@@ -2251,29 +2230,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 28,
+          "total": 27,
           "counts": {
-            "completed": 4,
+            "completed": 3,
             "in_progress": 0,
             "planned": 24
           },
           "status_counts": {
-            "scheduled": 15,
-            "unknown": 9,
-            "landed": 4
+            "scheduled": 14,
+            "unknown": 8,
+            "landed": 3,
+            "active": 2
           },
           "completed_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H990",
-              "status": "landed",
-              "dep": "LCA",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 20:55:00.000",
-              "actual_dep": "2026-04-07 21:08:00.000",
-              "scheduled_arr": "2026-04-07 22:00:00.000",
-              "actual_arr": "2026-04-07 21:54:00.000"
-            },
             {
               "airline": "airHaifa",
               "flight": "E2108",
@@ -2310,39 +2279,6 @@
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Tus Airways",
-              "flight": "U8457",
-              "status": "unknown",
-              "dep": "BLQ",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 17:50:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:20:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "FlyOne Romania",
-              "flight": "OE7809",
-              "status": "unknown",
-              "dep": "OTP",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 19:40:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8131",
-              "status": "unknown",
-              "dep": "FCO",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 18:25:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:50:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "empty",
               "flight": "",
@@ -2419,6 +2355,39 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 04:10:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C652",
+              "status": "unknown",
+              "dep": "ALA",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-08 02:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 04:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H964",
+              "status": "unknown",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-08 02:30:00.000",
+              "actual_dep": "2026-04-08 02:36:00.000",
+              "scheduled_arr": "2026-04-08 04:30:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C982",
+              "status": "unknown",
+              "dep": "JFK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-07 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 05:10:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -2427,15 +2396,15 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 27,
+          "total": 31,
           "counts": {
-            "completed": 5,
-            "in_progress": 7,
-            "planned": 15
+            "completed": 7,
+            "in_progress": 4,
+            "planned": 20
           },
           "status_counts": {
-            "active": 12,
-            "scheduled": 12,
+            "scheduled": 17,
+            "active": 11,
             "unknown": 3
           },
           "completed_examples": [
@@ -2493,6 +2462,28 @@
               "actual_dep": "2026-04-08 04:29:00.000",
               "scheduled_arr": "2026-04-08 05:05:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H715",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "BUD",
+              "scheduled_dep": "2026-04-08 05:30:00.000",
+              "actual_dep": "2026-04-08 05:40:00.000",
+              "scheduled_arr": "2026-04-08 08:00:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7211",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "CGN",
+              "scheduled_dep": "2026-04-08 05:30:00.000",
+              "actual_dep": "2026-04-08 05:46:00.000",
+              "scheduled_arr": "2026-04-08 09:25:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
@@ -2505,39 +2496,6 @@
               "scheduled_dep": "2026-04-08 00:55:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 01:57:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Silk Way West",
-              "flight": "7L219",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-08 05:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 10:10:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H715",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-08 05:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 08:00:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Challenge Air Cargo",
-              "flight": "X6211",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "CGN",
-              "scheduled_dep": "2026-04-08 05:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 09:25:00.000",
               "actual_arr": null
             },
             {
@@ -2576,17 +2534,6 @@
           ],
           "planned_examples": [
             {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ1165",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-07 22:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 23:00:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "FlyOne Romania",
               "flight": "OE7810",
               "status": "unknown",
@@ -2606,6 +2553,17 @@
               "scheduled_dep": "2026-04-08 04:20:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 06:30:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Silk Way West",
+              "flight": "7L219",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "GYD",
+              "scheduled_dep": "2026-04-08 05:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 10:10:00.000",
               "actual_arr": null
             },
             {
@@ -2694,29 +2652,19 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 28,
+          "total": 27,
           "counts": {
-            "completed": 4,
+            "completed": 3,
             "in_progress": 0,
             "planned": 24
           },
           "status_counts": {
-            "scheduled": 15,
-            "unknown": 9,
-            "landed": 4
+            "scheduled": 14,
+            "unknown": 8,
+            "landed": 3,
+            "active": 2
           },
           "completed_examples": [
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H990",
-              "status": "landed",
-              "dep": "LCA",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 20:55:00.000",
-              "actual_dep": "2026-04-07 21:08:00.000",
-              "scheduled_arr": "2026-04-07 22:00:00.000",
-              "actual_arr": "2026-04-07 21:54:00.000"
-            },
             {
               "airline": "airHaifa",
               "flight": "E2108",
@@ -2753,39 +2701,6 @@
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Tus Airways",
-              "flight": "U8457",
-              "status": "unknown",
-              "dep": "BLQ",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 17:50:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:20:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "FlyOne Romania",
-              "flight": "OE7809",
-              "status": "unknown",
-              "dep": "OTP",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 19:40:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Tus Airways",
-              "flight": "U8131",
-              "status": "unknown",
-              "dep": "FCO",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-07 18:25:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 22:50:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "empty",
               "flight": "",
@@ -2862,6 +2777,39 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 04:10:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C652",
+              "status": "unknown",
+              "dep": "ALA",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-08 02:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 04:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H964",
+              "status": "unknown",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-08 02:30:00.000",
+              "actual_dep": "2026-04-08 02:36:00.000",
+              "scheduled_arr": "2026-04-08 04:30:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "C.A.L. Cargo Airlines",
+              "flight": "5C982",
+              "status": "unknown",
+              "dep": "JFK",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-07 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 05:10:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -2870,15 +2818,15 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 27,
+          "total": 31,
           "counts": {
-            "completed": 5,
-            "in_progress": 7,
-            "planned": 15
+            "completed": 7,
+            "in_progress": 4,
+            "planned": 20
           },
           "status_counts": {
-            "active": 12,
-            "scheduled": 12,
+            "scheduled": 17,
+            "active": 11,
             "unknown": 3
           },
           "completed_examples": [
@@ -2936,6 +2884,28 @@
               "actual_dep": "2026-04-08 04:29:00.000",
               "scheduled_arr": "2026-04-08 05:05:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Israir Airlines",
+              "flight": "6H715",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "BUD",
+              "scheduled_dep": "2026-04-08 05:30:00.000",
+              "actual_dep": "2026-04-08 05:40:00.000",
+              "scheduled_arr": "2026-04-08 08:00:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7211",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "CGN",
+              "scheduled_dep": "2026-04-08 05:30:00.000",
+              "actual_dep": "2026-04-08 05:46:00.000",
+              "scheduled_arr": "2026-04-08 09:25:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
@@ -2948,39 +2918,6 @@
               "scheduled_dep": "2026-04-08 00:55:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 01:57:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Silk Way West",
-              "flight": "7L219",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-08 05:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 10:10:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H715",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-08 05:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 08:00:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Challenge Air Cargo",
-              "flight": "X6211",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "CGN",
-              "scheduled_dep": "2026-04-08 05:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-08 09:25:00.000",
               "actual_arr": null
             },
             {
@@ -3019,17 +2956,6 @@
           ],
           "planned_examples": [
             {
-              "airline": "Arkia Israeli Airlines",
-              "flight": "IZ1165",
-              "status": "unknown",
-              "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-07 22:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-07 23:00:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "FlyOne Romania",
               "flight": "OE7810",
               "status": "unknown",
@@ -3049,6 +2975,17 @@
               "scheduled_dep": "2026-04-08 04:20:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-08 06:30:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Silk Way West",
+              "flight": "7L219",
+              "status": "unknown",
+              "dep": "TLV",
+              "arr": "GYD",
+              "scheduled_dep": "2026-04-08 05:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-08 10:10:00.000",
               "actual_arr": null
             },
             {
