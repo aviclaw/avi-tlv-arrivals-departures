@@ -1,6 +1,6 @@
 {
   "airport": "TLV",
-  "generated_at": "2026-04-10T08:01:07Z",
+  "generated_at": "2026-04-10T09:13:54Z",
   "days": {
     "2026-04-04": {
       "arrival": {
@@ -1811,29 +1811,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 62,
+          "total": 65,
           "counts": {
-            "completed": 10,
+            "completed": 9,
             "in_progress": 0,
-            "planned": 52
+            "planned": 56
           },
           "status_counts": {
-            "scheduled": 37,
-            "unknown": 15,
-            "landed": 10
+            "scheduled": 40,
+            "unknown": 16,
+            "landed": 9
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1028",
-              "status": "landed",
-              "dep": "EWR",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-09 10:00:00.000",
-              "actual_dep": "2026-04-09 10:25:00.000",
-              "scheduled_arr": "2026-04-10 03:25:00.000",
-              "actual_arr": "2026-04-10 02:36:00.000"
-            },
             {
               "airline": "El Al",
               "flight": "LY418",
@@ -1937,28 +1926,6 @@
           "in_progress_examples": [],
           "planned_examples": [
             {
-              "airline": "El Al",
-              "flight": "LY440",
-              "status": "scheduled",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-10 01:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 03:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY824",
-              "status": "unknown",
-              "dep": "CDG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-09 22:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 03:45:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "Challenge Air Cargo",
               "flight": "X6112",
               "status": "unknown",
@@ -2045,6 +2012,28 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-10 08:10:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air Malta",
+              "flight": "W43479",
+              "status": "unknown",
+              "dep": "CLJ",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-10 05:20:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 08:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W64427",
+              "status": "unknown",
+              "dep": "SOF",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-10 05:45:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 08:15:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -2053,16 +2042,16 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 51,
+          "total": 53,
           "counts": {
-            "completed": 8,
+            "completed": 9,
             "in_progress": 12,
-            "planned": 31
+            "planned": 32
           },
           "status_counts": {
-            "active": 20,
-            "scheduled": 16,
-            "unknown": 15
+            "active": 21,
+            "unknown": 17,
+            "scheduled": 15
           },
           "completed_examples": [
             {
@@ -2152,20 +2141,20 @@
               "actual_dep": "2026-04-10 06:07:00.000",
               "scheduled_arr": "2026-04-10 09:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "empty",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-10 11:00:00.000",
+              "actual_dep": "2026-04-10 10:56:00.000",
+              "scheduled_arr": "2026-04-10 12:02:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7909",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "LGG",
-              "scheduled_dep": "2026-04-10 03:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 07:10:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY481",
@@ -2211,28 +2200,6 @@
               "actual_arr": null
             },
             {
-              "airline": "Wizz Air",
-              "flight": "W62326",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-10 10:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 12:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Wizz Air",
-              "flight": "W62510",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-10 10:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 12:40:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "Wizz Air Malta",
               "flight": "W46042",
               "status": "active",
@@ -2263,6 +2230,39 @@
               "scheduled_dep": "2026-04-10 11:15:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-10 14:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W61560",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "WAW",
+              "scheduled_dep": "2026-04-10 11:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 14:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W64604",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-10 12:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 13:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY483",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-04-10 12:25:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 15:05:00.000",
               "actual_arr": null
             }
           ],
@@ -2386,29 +2386,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 62,
+          "total": 65,
           "counts": {
-            "completed": 10,
+            "completed": 9,
             "in_progress": 0,
-            "planned": 52
+            "planned": 56
           },
           "status_counts": {
-            "scheduled": 37,
-            "unknown": 15,
-            "landed": 10
+            "scheduled": 40,
+            "unknown": 16,
+            "landed": 9
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1028",
-              "status": "landed",
-              "dep": "EWR",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-09 10:00:00.000",
-              "actual_dep": "2026-04-09 10:25:00.000",
-              "scheduled_arr": "2026-04-10 03:25:00.000",
-              "actual_arr": "2026-04-10 02:36:00.000"
-            },
             {
               "airline": "El Al",
               "flight": "LY418",
@@ -2512,28 +2501,6 @@
           "in_progress_examples": [],
           "planned_examples": [
             {
-              "airline": "El Al",
-              "flight": "LY440",
-              "status": "scheduled",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-10 01:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 03:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY824",
-              "status": "unknown",
-              "dep": "CDG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-09 22:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 03:45:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "Challenge Air Cargo",
               "flight": "X6112",
               "status": "unknown",
@@ -2620,6 +2587,28 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-10 08:10:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air Malta",
+              "flight": "W43479",
+              "status": "unknown",
+              "dep": "CLJ",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-10 05:20:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 08:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W64427",
+              "status": "unknown",
+              "dep": "SOF",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-10 05:45:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 08:15:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -2628,16 +2617,16 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 51,
+          "total": 53,
           "counts": {
-            "completed": 8,
+            "completed": 9,
             "in_progress": 12,
-            "planned": 31
+            "planned": 32
           },
           "status_counts": {
-            "active": 20,
-            "scheduled": 16,
-            "unknown": 15
+            "active": 21,
+            "unknown": 17,
+            "scheduled": 15
           },
           "completed_examples": [
             {
@@ -2727,20 +2716,20 @@
               "actual_dep": "2026-04-10 06:07:00.000",
               "scheduled_arr": "2026-04-10 09:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "empty",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-10 11:00:00.000",
+              "actual_dep": "2026-04-10 10:56:00.000",
+              "scheduled_arr": "2026-04-10 12:02:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7909",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "LGG",
-              "scheduled_dep": "2026-04-10 03:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 07:10:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY481",
@@ -2786,28 +2775,6 @@
               "actual_arr": null
             },
             {
-              "airline": "Wizz Air",
-              "flight": "W62326",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-10 10:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 12:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Wizz Air",
-              "flight": "W62510",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-10 10:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 12:40:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "Wizz Air Malta",
               "flight": "W46042",
               "status": "active",
@@ -2838,6 +2805,39 @@
               "scheduled_dep": "2026-04-10 11:15:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-10 14:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W61560",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "WAW",
+              "scheduled_dep": "2026-04-10 11:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 14:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W64604",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-10 12:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 13:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY483",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-04-10 12:25:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 15:05:00.000",
               "actual_arr": null
             }
           ],
@@ -2961,29 +2961,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 62,
+          "total": 65,
           "counts": {
-            "completed": 10,
+            "completed": 9,
             "in_progress": 0,
-            "planned": 52
+            "planned": 56
           },
           "status_counts": {
-            "scheduled": 37,
-            "unknown": 15,
-            "landed": 10
+            "scheduled": 40,
+            "unknown": 16,
+            "landed": 9
           },
           "completed_examples": [
-            {
-              "airline": "El Al",
-              "flight": "LY1028",
-              "status": "landed",
-              "dep": "EWR",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-09 10:00:00.000",
-              "actual_dep": "2026-04-09 10:25:00.000",
-              "scheduled_arr": "2026-04-10 03:25:00.000",
-              "actual_arr": "2026-04-10 02:36:00.000"
-            },
             {
               "airline": "El Al",
               "flight": "LY418",
@@ -3087,28 +3076,6 @@
           "in_progress_examples": [],
           "planned_examples": [
             {
-              "airline": "El Al",
-              "flight": "LY440",
-              "status": "scheduled",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-10 01:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 03:30:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY824",
-              "status": "unknown",
-              "dep": "CDG",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-09 22:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 03:45:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "Challenge Air Cargo",
               "flight": "X6112",
               "status": "unknown",
@@ -3195,6 +3162,28 @@
               "actual_dep": null,
               "scheduled_arr": "2026-04-10 08:10:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air Malta",
+              "flight": "W43479",
+              "status": "unknown",
+              "dep": "CLJ",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-10 05:20:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 08:15:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W64427",
+              "status": "unknown",
+              "dep": "SOF",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-10 05:45:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 08:15:00.000",
+              "actual_arr": null
             }
           ]
         }
@@ -3203,16 +3192,16 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 51,
+          "total": 53,
           "counts": {
-            "completed": 8,
+            "completed": 9,
             "in_progress": 12,
-            "planned": 31
+            "planned": 32
           },
           "status_counts": {
-            "active": 20,
-            "scheduled": 16,
-            "unknown": 15
+            "active": 21,
+            "unknown": 17,
+            "scheduled": 15
           },
           "completed_examples": [
             {
@@ -3302,20 +3291,20 @@
               "actual_dep": "2026-04-10 06:07:00.000",
               "scheduled_arr": "2026-04-10 09:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "empty",
+              "flight": "",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-10 11:00:00.000",
+              "actual_dep": "2026-04-10 10:56:00.000",
+              "scheduled_arr": "2026-04-10 12:02:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7909",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "LGG",
-              "scheduled_dep": "2026-04-10 03:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 07:10:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "El Al",
               "flight": "LY481",
@@ -3361,28 +3350,6 @@
               "actual_arr": null
             },
             {
-              "airline": "Wizz Air",
-              "flight": "W62326",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-10 10:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 12:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Wizz Air",
-              "flight": "W62510",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "BUD",
-              "scheduled_dep": "2026-04-10 10:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-10 12:40:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "Wizz Air Malta",
               "flight": "W46042",
               "status": "active",
@@ -3413,6 +3380,39 @@
               "scheduled_dep": "2026-04-10 11:15:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-10 14:10:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W61560",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "WAW",
+              "scheduled_dep": "2026-04-10 11:50:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 14:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Wizz Air",
+              "flight": "W64604",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-10 12:00:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 13:05:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY483",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "FCO",
+              "scheduled_dep": "2026-04-10 12:25:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-10 15:05:00.000",
               "actual_arr": null
             }
           ],
