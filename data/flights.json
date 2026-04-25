@@ -1,6 +1,6 @@
 {
   "airport": "TLV",
-  "generated_at": "2026-04-25T05:49:27Z",
+  "generated_at": "2026-04-25T08:00:38Z",
   "days": {
     "2026-04-19": {
       "arrival": {
@@ -1815,17 +1815,17 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 28,
+          "total": 35,
           "counts": {
-            "completed": 2,
+            "completed": 6,
             "in_progress": 0,
-            "planned": 26
+            "planned": 29
           },
           "status_counts": {
-            "scheduled": 13,
-            "active": 9,
-            "unknown": 4,
-            "landed": 2
+            "scheduled": 18,
+            "active": 8,
+            "landed": 6,
+            "unknown": 3
           },
           "completed_examples": [
             {
@@ -1849,32 +1849,54 @@
               "actual_dep": "2026-04-25 07:08:00.000",
               "scheduled_arr": "2026-04-25 08:00:00.000",
               "actual_arr": "2026-04-25 07:50:00.000"
+            },
+            {
+              "airline": "DHL Air",
+              "flight": "D0247",
+              "status": "landed",
+              "dep": "LEJ",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 05:20:00.000",
+              "actual_dep": "2026-04-25 05:28:00.000",
+              "scheduled_arr": "2026-04-25 09:59:00.000",
+              "actual_arr": "2026-04-25 09:49:00.000"
+            },
+            {
+              "airline": "Emirates",
+              "flight": "EK2369",
+              "status": "landed",
+              "dep": "DXB",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 07:00:00.000",
+              "actual_dep": "2026-04-25 07:36:00.000",
+              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "actual_arr": "2026-04-25 10:15:00.000"
+            },
+            {
+              "airline": "flydubai",
+              "flight": "FZ1549",
+              "status": "landed",
+              "dep": "DXB",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 07:00:00.000",
+              "actual_dep": "2026-04-25 07:36:00.000",
+              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "actual_arr": "2026-04-25 10:15:00.000"
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7608",
+              "status": "landed",
+              "dep": "LGG",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 05:20:00.000",
+              "actual_dep": "2026-04-25 05:19:00.000",
+              "scheduled_arr": "2026-04-25 11:10:00.000",
+              "actual_arr": "2026-04-25 10:28:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Challenge Airlines IL",
-              "flight": "5C982",
-              "status": "scheduled",
-              "dep": "JFK",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-24 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 02:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY844",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 01:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 02:55:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Challenge Airlines IL",
               "flight": "5C402",
@@ -1909,36 +1931,14 @@
               "actual_arr": null
             },
             {
-              "airline": "DHL Air",
-              "flight": "D0247",
-              "status": "active",
-              "dep": "LEJ",
+              "airline": "Challenge Airlines BE",
+              "flight": "X7608",
+              "status": "scheduled",
+              "dep": "LGG",
               "arr": "TLV",
-              "scheduled_dep": "2026-04-25 05:20:00.000",
-              "actual_dep": "2026-04-25 05:28:00.000",
-              "scheduled_arr": "2026-04-25 09:59:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Emirates",
-              "flight": "EK2369",
-              "status": "active",
-              "dep": "DXB",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 07:00:00.000",
-              "actual_dep": "2026-04-25 07:36:00.000",
-              "scheduled_arr": "2026-04-25 10:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "flydubai",
-              "flight": "FZ1549",
-              "status": "active",
-              "dep": "DXB",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 07:00:00.000",
-              "actual_dep": "2026-04-25 07:36:00.000",
-              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "scheduled_dep": "2026-04-25 06:05:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 10:40:00.000",
               "actual_arr": null
             },
             {
@@ -1953,14 +1953,58 @@
               "actual_arr": null
             },
             {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7608",
+              "airline": "Cargo Air",
+              "flight": "",
               "status": "active",
-              "dep": "LGG",
+              "dep": "CGN",
               "arr": "TLV",
-              "scheduled_dep": "2026-04-25 05:20:00.000",
-              "actual_dep": "2026-04-25 05:19:00.000",
-              "scheduled_arr": "2026-04-25 11:10:00.000",
+              "scheduled_dep": "2026-04-25 06:10:00.000",
+              "actual_dep": "2026-04-25 06:15:00.000",
+              "scheduled_arr": "2026-04-25 11:27:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY9600",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "China Eastern Airlines",
+              "flight": "MU4543",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Etihad Airways",
+              "flight": "EY593",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Bluebird Airways",
+              "flight": "BZ707",
+              "status": "active",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:55:00.000",
+              "actual_dep": "2026-04-25 10:11:00.000",
+              "scheduled_arr": "2026-04-25 11:55:00.000",
               "actual_arr": null
             }
           ]
@@ -1970,29 +2014,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 29,
+          "total": 38,
           "counts": {
-            "completed": 2,
-            "in_progress": 8,
-            "planned": 19
+            "completed": 3,
+            "in_progress": 5,
+            "planned": 30
           },
           "status_counts": {
-            "scheduled": 18,
-            "active": 10,
-            "unknown": 1
+            "scheduled": 26,
+            "active": 8,
+            "unknown": 4
           },
           "completed_examples": [
-            {
-              "airline": "arkia",
-              "flight": "IZ339",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "FCO",
-              "scheduled_dep": "2026-04-25 02:35:00.000",
-              "actual_dep": "2026-04-25 02:41:00.000",
-              "scheduled_arr": "2026-04-25 05:15:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "arkia",
               "flight": "IZ1165",
@@ -2003,20 +2036,31 @@
               "actual_dep": "2026-04-25 05:19:00.000",
               "scheduled_arr": "2026-04-25 06:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "My Freighter",
+              "flight": "C6672",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "TBS",
+              "scheduled_dep": "2026-04-25 08:30:00.000",
+              "actual_dep": "2026-04-25 08:43:00.000",
+              "scheduled_arr": "2026-04-25 12:18:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "arkia",
+              "flight": "IZ1213",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "actual_dep": "2026-04-25 09:39:00.000",
+              "scheduled_arr": "2026-04-25 11:40:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7903",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "LGG",
-              "scheduled_dep": "2026-04-25 02:55:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 06:15:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Challenge Airlines BE",
               "flight": "X7901",
@@ -2040,58 +2084,36 @@
               "actual_arr": null
             },
             {
-              "airline": "Ethiopian Airlines",
-              "flight": "ET3415",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ADD",
-              "scheduled_dep": "2026-04-25 08:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 12:10:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Silk Way West Airlines",
-              "flight": "7L217",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-25 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 13:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "My Freighter",
-              "flight": "C6672",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "TBS",
-              "scheduled_dep": "2026-04-25 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 12:18:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "arkia",
-              "flight": "IZ1213",
+              "flight": "IZ1211",
               "status": "active",
               "dep": "TLV",
               "arr": "ATH",
-              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "scheduled_dep": "2026-04-25 11:35:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 11:40:00.000",
+              "scheduled_arr": "2026-04-25 13:45:00.000",
               "actual_arr": null
             },
             {
-              "airline": "Challenge Air Cargo",
-              "flight": "X62255",
+              "airline": "Emirates",
+              "flight": "EK2370",
               "status": "active",
               "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "arr": "DXB",
+              "scheduled_dep": "2026-04-25 11:40:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 10:50:00.000",
+              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "flydubai",
+              "flight": "FZ1550",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "DXB",
+              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 16:40:00.000",
               "actual_arr": null
             }
           ],
@@ -2108,36 +2130,36 @@
               "actual_arr": null
             },
             {
-              "airline": "arkia",
-              "flight": "IZ1211",
-              "status": "scheduled",
+              "airline": "Ethiopian Airlines",
+              "flight": "ET3415",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-25 11:35:00.000",
+              "arr": "ADD",
+              "scheduled_dep": "2026-04-25 08:10:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 13:45:00.000",
+              "scheduled_arr": "2026-04-25 12:10:00.000",
               "actual_arr": null
             },
             {
-              "airline": "Emirates",
-              "flight": "EK2370",
-              "status": "scheduled",
+              "airline": "Silk Way West Airlines",
+              "flight": "7L217",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "DXB",
-              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "arr": "GYD",
+              "scheduled_dep": "2026-04-25 08:30:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "scheduled_arr": "2026-04-25 13:40:00.000",
               "actual_arr": null
             },
             {
-              "airline": "flydubai",
-              "flight": "FZ1550",
-              "status": "scheduled",
+              "airline": "Challenge Air Cargo",
+              "flight": "X62255",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "DXB",
-              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-25 09:30:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "scheduled_arr": "2026-04-25 10:50:00.000",
               "actual_arr": null
             },
             {
@@ -2185,6 +2207,17 @@
               "actual_arr": null
             },
             {
+              "airline": "DHL Air",
+              "flight": "D0248",
+              "status": "scheduled",
+              "dep": "TLV",
+              "arr": "LEJ",
+              "scheduled_dep": "2026-04-25 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 15:24:00.000",
+              "actual_arr": null
+            },
+            {
               "airline": "Cargo Air",
               "flight": "",
               "status": "scheduled",
@@ -2193,17 +2226,6 @@
               "scheduled_dep": "2026-04-25 12:40:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-25 16:04:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H515",
-              "status": "scheduled",
-              "dep": "TLV",
-              "arr": "RHO",
-              "scheduled_dep": "2026-04-25 12:45:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 14:16:00.000",
               "actual_arr": null
             }
           ]
@@ -2215,17 +2237,17 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 28,
+          "total": 35,
           "counts": {
-            "completed": 2,
+            "completed": 6,
             "in_progress": 0,
-            "planned": 26
+            "planned": 29
           },
           "status_counts": {
-            "scheduled": 13,
-            "active": 9,
-            "unknown": 4,
-            "landed": 2
+            "scheduled": 18,
+            "active": 8,
+            "landed": 6,
+            "unknown": 3
           },
           "completed_examples": [
             {
@@ -2249,32 +2271,54 @@
               "actual_dep": "2026-04-25 07:08:00.000",
               "scheduled_arr": "2026-04-25 08:00:00.000",
               "actual_arr": "2026-04-25 07:50:00.000"
+            },
+            {
+              "airline": "DHL Air",
+              "flight": "D0247",
+              "status": "landed",
+              "dep": "LEJ",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 05:20:00.000",
+              "actual_dep": "2026-04-25 05:28:00.000",
+              "scheduled_arr": "2026-04-25 09:59:00.000",
+              "actual_arr": "2026-04-25 09:49:00.000"
+            },
+            {
+              "airline": "Emirates",
+              "flight": "EK2369",
+              "status": "landed",
+              "dep": "DXB",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 07:00:00.000",
+              "actual_dep": "2026-04-25 07:36:00.000",
+              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "actual_arr": "2026-04-25 10:15:00.000"
+            },
+            {
+              "airline": "flydubai",
+              "flight": "FZ1549",
+              "status": "landed",
+              "dep": "DXB",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 07:00:00.000",
+              "actual_dep": "2026-04-25 07:36:00.000",
+              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "actual_arr": "2026-04-25 10:15:00.000"
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7608",
+              "status": "landed",
+              "dep": "LGG",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 05:20:00.000",
+              "actual_dep": "2026-04-25 05:19:00.000",
+              "scheduled_arr": "2026-04-25 11:10:00.000",
+              "actual_arr": "2026-04-25 10:28:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Challenge Airlines IL",
-              "flight": "5C982",
-              "status": "scheduled",
-              "dep": "JFK",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-24 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 02:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY844",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 01:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 02:55:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Challenge Airlines IL",
               "flight": "5C402",
@@ -2309,36 +2353,14 @@
               "actual_arr": null
             },
             {
-              "airline": "DHL Air",
-              "flight": "D0247",
-              "status": "active",
-              "dep": "LEJ",
+              "airline": "Challenge Airlines BE",
+              "flight": "X7608",
+              "status": "scheduled",
+              "dep": "LGG",
               "arr": "TLV",
-              "scheduled_dep": "2026-04-25 05:20:00.000",
-              "actual_dep": "2026-04-25 05:28:00.000",
-              "scheduled_arr": "2026-04-25 09:59:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Emirates",
-              "flight": "EK2369",
-              "status": "active",
-              "dep": "DXB",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 07:00:00.000",
-              "actual_dep": "2026-04-25 07:36:00.000",
-              "scheduled_arr": "2026-04-25 10:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "flydubai",
-              "flight": "FZ1549",
-              "status": "active",
-              "dep": "DXB",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 07:00:00.000",
-              "actual_dep": "2026-04-25 07:36:00.000",
-              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "scheduled_dep": "2026-04-25 06:05:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 10:40:00.000",
               "actual_arr": null
             },
             {
@@ -2353,14 +2375,58 @@
               "actual_arr": null
             },
             {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7608",
+              "airline": "Cargo Air",
+              "flight": "",
               "status": "active",
-              "dep": "LGG",
+              "dep": "CGN",
               "arr": "TLV",
-              "scheduled_dep": "2026-04-25 05:20:00.000",
-              "actual_dep": "2026-04-25 05:19:00.000",
-              "scheduled_arr": "2026-04-25 11:10:00.000",
+              "scheduled_dep": "2026-04-25 06:10:00.000",
+              "actual_dep": "2026-04-25 06:15:00.000",
+              "scheduled_arr": "2026-04-25 11:27:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY9600",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "China Eastern Airlines",
+              "flight": "MU4543",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Etihad Airways",
+              "flight": "EY593",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Bluebird Airways",
+              "flight": "BZ707",
+              "status": "active",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:55:00.000",
+              "actual_dep": "2026-04-25 10:11:00.000",
+              "scheduled_arr": "2026-04-25 11:55:00.000",
               "actual_arr": null
             }
           ]
@@ -2370,29 +2436,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 29,
+          "total": 38,
           "counts": {
-            "completed": 2,
-            "in_progress": 8,
-            "planned": 19
+            "completed": 3,
+            "in_progress": 5,
+            "planned": 30
           },
           "status_counts": {
-            "scheduled": 18,
-            "active": 10,
-            "unknown": 1
+            "scheduled": 26,
+            "active": 8,
+            "unknown": 4
           },
           "completed_examples": [
-            {
-              "airline": "arkia",
-              "flight": "IZ339",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "FCO",
-              "scheduled_dep": "2026-04-25 02:35:00.000",
-              "actual_dep": "2026-04-25 02:41:00.000",
-              "scheduled_arr": "2026-04-25 05:15:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "arkia",
               "flight": "IZ1165",
@@ -2403,20 +2458,31 @@
               "actual_dep": "2026-04-25 05:19:00.000",
               "scheduled_arr": "2026-04-25 06:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "My Freighter",
+              "flight": "C6672",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "TBS",
+              "scheduled_dep": "2026-04-25 08:30:00.000",
+              "actual_dep": "2026-04-25 08:43:00.000",
+              "scheduled_arr": "2026-04-25 12:18:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "arkia",
+              "flight": "IZ1213",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "actual_dep": "2026-04-25 09:39:00.000",
+              "scheduled_arr": "2026-04-25 11:40:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7903",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "LGG",
-              "scheduled_dep": "2026-04-25 02:55:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 06:15:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Challenge Airlines BE",
               "flight": "X7901",
@@ -2440,58 +2506,36 @@
               "actual_arr": null
             },
             {
-              "airline": "Ethiopian Airlines",
-              "flight": "ET3415",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ADD",
-              "scheduled_dep": "2026-04-25 08:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 12:10:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Silk Way West Airlines",
-              "flight": "7L217",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-25 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 13:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "My Freighter",
-              "flight": "C6672",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "TBS",
-              "scheduled_dep": "2026-04-25 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 12:18:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "arkia",
-              "flight": "IZ1213",
+              "flight": "IZ1211",
               "status": "active",
               "dep": "TLV",
               "arr": "ATH",
-              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "scheduled_dep": "2026-04-25 11:35:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 11:40:00.000",
+              "scheduled_arr": "2026-04-25 13:45:00.000",
               "actual_arr": null
             },
             {
-              "airline": "Challenge Air Cargo",
-              "flight": "X62255",
+              "airline": "Emirates",
+              "flight": "EK2370",
               "status": "active",
               "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "arr": "DXB",
+              "scheduled_dep": "2026-04-25 11:40:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 10:50:00.000",
+              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "flydubai",
+              "flight": "FZ1550",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "DXB",
+              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 16:40:00.000",
               "actual_arr": null
             }
           ],
@@ -2508,36 +2552,36 @@
               "actual_arr": null
             },
             {
-              "airline": "arkia",
-              "flight": "IZ1211",
-              "status": "scheduled",
+              "airline": "Ethiopian Airlines",
+              "flight": "ET3415",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-25 11:35:00.000",
+              "arr": "ADD",
+              "scheduled_dep": "2026-04-25 08:10:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 13:45:00.000",
+              "scheduled_arr": "2026-04-25 12:10:00.000",
               "actual_arr": null
             },
             {
-              "airline": "Emirates",
-              "flight": "EK2370",
-              "status": "scheduled",
+              "airline": "Silk Way West Airlines",
+              "flight": "7L217",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "DXB",
-              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "arr": "GYD",
+              "scheduled_dep": "2026-04-25 08:30:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "scheduled_arr": "2026-04-25 13:40:00.000",
               "actual_arr": null
             },
             {
-              "airline": "flydubai",
-              "flight": "FZ1550",
-              "status": "scheduled",
+              "airline": "Challenge Air Cargo",
+              "flight": "X62255",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "DXB",
-              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-25 09:30:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "scheduled_arr": "2026-04-25 10:50:00.000",
               "actual_arr": null
             },
             {
@@ -2585,6 +2629,17 @@
               "actual_arr": null
             },
             {
+              "airline": "DHL Air",
+              "flight": "D0248",
+              "status": "scheduled",
+              "dep": "TLV",
+              "arr": "LEJ",
+              "scheduled_dep": "2026-04-25 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 15:24:00.000",
+              "actual_arr": null
+            },
+            {
               "airline": "Cargo Air",
               "flight": "",
               "status": "scheduled",
@@ -2593,17 +2648,6 @@
               "scheduled_dep": "2026-04-25 12:40:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-25 16:04:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H515",
-              "status": "scheduled",
-              "dep": "TLV",
-              "arr": "RHO",
-              "scheduled_dep": "2026-04-25 12:45:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 14:16:00.000",
               "actual_arr": null
             }
           ]
@@ -2615,17 +2659,17 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 28,
+          "total": 35,
           "counts": {
-            "completed": 2,
+            "completed": 6,
             "in_progress": 0,
-            "planned": 26
+            "planned": 29
           },
           "status_counts": {
-            "scheduled": 13,
-            "active": 9,
-            "unknown": 4,
-            "landed": 2
+            "scheduled": 18,
+            "active": 8,
+            "landed": 6,
+            "unknown": 3
           },
           "completed_examples": [
             {
@@ -2649,32 +2693,54 @@
               "actual_dep": "2026-04-25 07:08:00.000",
               "scheduled_arr": "2026-04-25 08:00:00.000",
               "actual_arr": "2026-04-25 07:50:00.000"
+            },
+            {
+              "airline": "DHL Air",
+              "flight": "D0247",
+              "status": "landed",
+              "dep": "LEJ",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 05:20:00.000",
+              "actual_dep": "2026-04-25 05:28:00.000",
+              "scheduled_arr": "2026-04-25 09:59:00.000",
+              "actual_arr": "2026-04-25 09:49:00.000"
+            },
+            {
+              "airline": "Emirates",
+              "flight": "EK2369",
+              "status": "landed",
+              "dep": "DXB",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 07:00:00.000",
+              "actual_dep": "2026-04-25 07:36:00.000",
+              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "actual_arr": "2026-04-25 10:15:00.000"
+            },
+            {
+              "airline": "flydubai",
+              "flight": "FZ1549",
+              "status": "landed",
+              "dep": "DXB",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 07:00:00.000",
+              "actual_dep": "2026-04-25 07:36:00.000",
+              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "actual_arr": "2026-04-25 10:15:00.000"
+            },
+            {
+              "airline": "Challenge Airlines BE",
+              "flight": "X7608",
+              "status": "landed",
+              "dep": "LGG",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 05:20:00.000",
+              "actual_dep": "2026-04-25 05:19:00.000",
+              "scheduled_arr": "2026-04-25 11:10:00.000",
+              "actual_arr": "2026-04-25 10:28:00.000"
             }
           ],
           "in_progress_examples": [],
           "planned_examples": [
-            {
-              "airline": "Challenge Airlines IL",
-              "flight": "5C982",
-              "status": "scheduled",
-              "dep": "JFK",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-24 09:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 02:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "El Al",
-              "flight": "LY844",
-              "status": "unknown",
-              "dep": "ATH",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 01:00:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 02:55:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Challenge Airlines IL",
               "flight": "5C402",
@@ -2709,36 +2775,14 @@
               "actual_arr": null
             },
             {
-              "airline": "DHL Air",
-              "flight": "D0247",
-              "status": "active",
-              "dep": "LEJ",
+              "airline": "Challenge Airlines BE",
+              "flight": "X7608",
+              "status": "scheduled",
+              "dep": "LGG",
               "arr": "TLV",
-              "scheduled_dep": "2026-04-25 05:20:00.000",
-              "actual_dep": "2026-04-25 05:28:00.000",
-              "scheduled_arr": "2026-04-25 09:59:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Emirates",
-              "flight": "EK2369",
-              "status": "active",
-              "dep": "DXB",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 07:00:00.000",
-              "actual_dep": "2026-04-25 07:36:00.000",
-              "scheduled_arr": "2026-04-25 10:25:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "flydubai",
-              "flight": "FZ1549",
-              "status": "active",
-              "dep": "DXB",
-              "arr": "TLV",
-              "scheduled_dep": "2026-04-25 07:00:00.000",
-              "actual_dep": "2026-04-25 07:36:00.000",
-              "scheduled_arr": "2026-04-25 10:25:00.000",
+              "scheduled_dep": "2026-04-25 06:05:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 10:40:00.000",
               "actual_arr": null
             },
             {
@@ -2753,14 +2797,58 @@
               "actual_arr": null
             },
             {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7608",
+              "airline": "Cargo Air",
+              "flight": "",
               "status": "active",
-              "dep": "LGG",
+              "dep": "CGN",
               "arr": "TLV",
-              "scheduled_dep": "2026-04-25 05:20:00.000",
-              "actual_dep": "2026-04-25 05:19:00.000",
-              "scheduled_arr": "2026-04-25 11:10:00.000",
+              "scheduled_dep": "2026-04-25 06:10:00.000",
+              "actual_dep": "2026-04-25 06:15:00.000",
+              "scheduled_arr": "2026-04-25 11:27:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "El Al",
+              "flight": "LY9600",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "China Eastern Airlines",
+              "flight": "MU4543",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Etihad Airways",
+              "flight": "EY593",
+              "status": "active",
+              "dep": "AUH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:00:00.000",
+              "actual_dep": "2026-04-25 09:18:00.000",
+              "scheduled_arr": "2026-04-25 11:50:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "Bluebird Airways",
+              "flight": "BZ707",
+              "status": "active",
+              "dep": "ATH",
+              "arr": "TLV",
+              "scheduled_dep": "2026-04-25 09:55:00.000",
+              "actual_dep": "2026-04-25 10:11:00.000",
+              "scheduled_arr": "2026-04-25 11:55:00.000",
               "actual_arr": null
             }
           ]
@@ -2770,29 +2858,18 @@
         "endpoint_mode": "live",
         "status_code": 200,
         "summary": {
-          "total": 29,
+          "total": 38,
           "counts": {
-            "completed": 2,
-            "in_progress": 8,
-            "planned": 19
+            "completed": 3,
+            "in_progress": 5,
+            "planned": 30
           },
           "status_counts": {
-            "scheduled": 18,
-            "active": 10,
-            "unknown": 1
+            "scheduled": 26,
+            "active": 8,
+            "unknown": 4
           },
           "completed_examples": [
-            {
-              "airline": "arkia",
-              "flight": "IZ339",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "FCO",
-              "scheduled_dep": "2026-04-25 02:35:00.000",
-              "actual_dep": "2026-04-25 02:41:00.000",
-              "scheduled_arr": "2026-04-25 05:15:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "arkia",
               "flight": "IZ1165",
@@ -2803,20 +2880,31 @@
               "actual_dep": "2026-04-25 05:19:00.000",
               "scheduled_arr": "2026-04-25 06:00:00.000",
               "actual_arr": null
+            },
+            {
+              "airline": "My Freighter",
+              "flight": "C6672",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "TBS",
+              "scheduled_dep": "2026-04-25 08:30:00.000",
+              "actual_dep": "2026-04-25 08:43:00.000",
+              "scheduled_arr": "2026-04-25 12:18:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "arkia",
+              "flight": "IZ1213",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "ATH",
+              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "actual_dep": "2026-04-25 09:39:00.000",
+              "scheduled_arr": "2026-04-25 11:40:00.000",
+              "actual_arr": null
             }
           ],
           "in_progress_examples": [
-            {
-              "airline": "Challenge Airlines BE",
-              "flight": "X7903",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "LGG",
-              "scheduled_dep": "2026-04-25 02:55:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 06:15:00.000",
-              "actual_arr": null
-            },
             {
               "airline": "Challenge Airlines BE",
               "flight": "X7901",
@@ -2840,58 +2928,36 @@
               "actual_arr": null
             },
             {
-              "airline": "Ethiopian Airlines",
-              "flight": "ET3415",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "ADD",
-              "scheduled_dep": "2026-04-25 08:10:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 12:10:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Silk Way West Airlines",
-              "flight": "7L217",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "GYD",
-              "scheduled_dep": "2026-04-25 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 13:40:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "My Freighter",
-              "flight": "C6672",
-              "status": "active",
-              "dep": "TLV",
-              "arr": "TBS",
-              "scheduled_dep": "2026-04-25 08:30:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 12:18:00.000",
-              "actual_arr": null
-            },
-            {
               "airline": "arkia",
-              "flight": "IZ1213",
+              "flight": "IZ1211",
               "status": "active",
               "dep": "TLV",
               "arr": "ATH",
-              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "scheduled_dep": "2026-04-25 11:35:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 11:40:00.000",
+              "scheduled_arr": "2026-04-25 13:45:00.000",
               "actual_arr": null
             },
             {
-              "airline": "Challenge Air Cargo",
-              "flight": "X62255",
+              "airline": "Emirates",
+              "flight": "EK2370",
               "status": "active",
               "dep": "TLV",
-              "arr": "LCA",
-              "scheduled_dep": "2026-04-25 09:30:00.000",
+              "arr": "DXB",
+              "scheduled_dep": "2026-04-25 11:40:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 10:50:00.000",
+              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "actual_arr": null
+            },
+            {
+              "airline": "flydubai",
+              "flight": "FZ1550",
+              "status": "active",
+              "dep": "TLV",
+              "arr": "DXB",
+              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 16:40:00.000",
               "actual_arr": null
             }
           ],
@@ -2908,36 +2974,36 @@
               "actual_arr": null
             },
             {
-              "airline": "arkia",
-              "flight": "IZ1211",
-              "status": "scheduled",
+              "airline": "Ethiopian Airlines",
+              "flight": "ET3415",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "ATH",
-              "scheduled_dep": "2026-04-25 11:35:00.000",
+              "arr": "ADD",
+              "scheduled_dep": "2026-04-25 08:10:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 13:45:00.000",
+              "scheduled_arr": "2026-04-25 12:10:00.000",
               "actual_arr": null
             },
             {
-              "airline": "Emirates",
-              "flight": "EK2370",
-              "status": "scheduled",
+              "airline": "Silk Way West Airlines",
+              "flight": "7L217",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "DXB",
-              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "arr": "GYD",
+              "scheduled_dep": "2026-04-25 08:30:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "scheduled_arr": "2026-04-25 13:40:00.000",
               "actual_arr": null
             },
             {
-              "airline": "flydubai",
-              "flight": "FZ1550",
-              "status": "scheduled",
+              "airline": "Challenge Air Cargo",
+              "flight": "X62255",
+              "status": "unknown",
               "dep": "TLV",
-              "arr": "DXB",
-              "scheduled_dep": "2026-04-25 11:40:00.000",
+              "arr": "LCA",
+              "scheduled_dep": "2026-04-25 09:30:00.000",
               "actual_dep": null,
-              "scheduled_arr": "2026-04-25 16:40:00.000",
+              "scheduled_arr": "2026-04-25 10:50:00.000",
               "actual_arr": null
             },
             {
@@ -2985,6 +3051,17 @@
               "actual_arr": null
             },
             {
+              "airline": "DHL Air",
+              "flight": "D0248",
+              "status": "scheduled",
+              "dep": "TLV",
+              "arr": "LEJ",
+              "scheduled_dep": "2026-04-25 12:30:00.000",
+              "actual_dep": null,
+              "scheduled_arr": "2026-04-25 15:24:00.000",
+              "actual_arr": null
+            },
+            {
               "airline": "Cargo Air",
               "flight": "",
               "status": "scheduled",
@@ -2993,17 +3070,6 @@
               "scheduled_dep": "2026-04-25 12:40:00.000",
               "actual_dep": null,
               "scheduled_arr": "2026-04-25 16:04:00.000",
-              "actual_arr": null
-            },
-            {
-              "airline": "Israir Airlines",
-              "flight": "6H515",
-              "status": "scheduled",
-              "dep": "TLV",
-              "arr": "RHO",
-              "scheduled_dep": "2026-04-25 12:45:00.000",
-              "actual_dep": null,
-              "scheduled_arr": "2026-04-25 14:16:00.000",
               "actual_arr": null
             }
           ]
